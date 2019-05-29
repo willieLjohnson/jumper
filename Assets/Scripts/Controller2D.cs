@@ -18,22 +18,22 @@ public class Controller2D : MonoBehaviour
   void Start()
   {
     collider = GetComponent<BoxCollider2D>();
-  }
-
-  void Update()
-  {
-    UpdateRayCastOrigins();
     CalculateRaySpacing();
-
-    for (int i = 0; i < verticalRayCount; i++)
-    {
-      Debug.DrawRay(raycastOrigins.bottomLeft + Vector2.right * verticalRaySpacing * i, Vector2.up * -2, Color.red);
-    }
   }
 
   public void Move(Vector3 velocity)
   {
+    UpdateRayCastOrigins();
+
     transform.Translate(velocity);
+  }
+
+  void VerticalCollisions()
+  {
+    for (int i = 0; i < verticalRayCount; i++)
+    {
+      Debug.DrawRay(raycastOrigins.bottomLeft + Vector2.right * verticalRaySpacing * i, Vector2.up * -2, Color.red);
+    }
   }
 
   void UpdateRayCastOrigins()
