@@ -71,13 +71,6 @@ public class Controller2D : MonoBehaviour
     }
   }
 
-  void ClimbSlope(ref Vector3 velocity, float slopeAngle)
-  {
-    float moveDistance = Mathf.Abs(velocity.x);
-    velocity.y = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
-    velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
-  }
-
   void VerticalCollisions(ref Vector3 velocity)
   {
     float directionY = Mathf.Sign(velocity.y);
@@ -101,6 +94,24 @@ public class Controller2D : MonoBehaviour
       }
     }
   }
+
+  void ClimbSlope(ref Vector3 velocity, float slopeAngle)
+  {
+    float moveDistance = Mathf.Abs(velocity.x);
+    float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+
+    if (velocity.y > climbVelocityY)
+    {
+      print("jumping on slope");
+    }
+    else
+    {
+      velocity.y =
+      velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
+      collisions.below = true;
+    }
+  }
+
 
   void UpdateRayCastOrigins()
   {
