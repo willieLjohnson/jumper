@@ -28,7 +28,7 @@ public class Controller2D : MonoBehaviour
   public void Move(Vector3 velocity)
   {
     UpdateRayCastOrigins();
-    collisions.Reset(;
+    collisions.Reset();
 
     if (velocity.x != 0)
       HorizontalCollisions(ref velocity);
@@ -79,7 +79,7 @@ public class Controller2D : MonoBehaviour
       {
         velocity.y = (hit.distance - skinWidth) * directionY;
         rayLength = hit.distance;
- 
+
         collisions.below = directionY == -1;
         collisions.above = directionY == 1;
       }
