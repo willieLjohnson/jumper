@@ -31,6 +31,11 @@ public class Controller2D : MonoBehaviour
     }
   }
 
+  public void Move(Vector3 velocity)
+  {
+    transform.Translate(velocity);
+  }
+
   void UpdateRayCastOrigins()
   {
     Bounds bounds = collider.bounds;
