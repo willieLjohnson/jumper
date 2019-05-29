@@ -100,15 +100,13 @@ public class Controller2D : MonoBehaviour
     float moveDistance = Mathf.Abs(velocity.x);
     float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
 
-    if (velocity.y > climbVelocityY)
-    {
-      print("jumping on slope");
-    }
-    else
+    if (velocity.y <= climbVelocityY)
     {
       velocity.y =
       velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(velocity.x);
       collisions.below = true;
+      collisions.climbingSlope = true;
+      collisions.slopeAngle = slopeAngle;
     }
   }
 
@@ -147,10 +145,17 @@ public class Controller2D : MonoBehaviour
     public bool above, below;
     public bool left, right;
 
+    public bool climbingSlope;
+    public float slopeAngle, slopeAngleOld;
+
     public void Reset()
     {
       above = below = false;
       left = right = false;
+      climbingSlope = false;
+
+      slopeAngleOld = slopeAngle;
+      slopeAngle = 0;
     }
   }
 }
