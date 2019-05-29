@@ -5,10 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
+  float gravity = 020;
+  Vector3 velocity;
+
   Controller2D controller;
   // Start is called before the first frame update
   void Start()
   {
     controller = GetComponent<Controller2D>();
+  }
+
+  void Update()
+  {
+    velocity.y += gravity * Time.deltaTime;
+    controller.Move(velocity * Time.deltaTime);
   }
 }
