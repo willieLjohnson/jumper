@@ -74,6 +74,12 @@ public class Controller2D : MonoBehaviour
           velocity.x = (hit.distance - skinWidth) * directionX;
           rayLength = hit.distance;
 
+
+          if (collisions.climbingSlope)
+          {
+            velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad * Mathf.Abs(velocity.x));
+          }
+
           collisions.left = directionX == -1;
           collisions.left = directionX == 1;
         }
