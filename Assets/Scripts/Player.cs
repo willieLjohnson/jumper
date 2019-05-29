@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
-  float gravity = 020;
+  float gravity = -20;
   Vector3 velocity;
 
   Controller2D controller;
