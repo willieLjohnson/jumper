@@ -11,8 +11,11 @@ public class PlatformController : RaycastController
 
   public float speed;
   public bool cyclic;
+  public float waitTime;
+
   int fromWaypointIndex;
   float percentBetweenWaypoints;
+  float nextMoveTime;
 
   List<PassengerMovement> passengerMovement;
   Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
@@ -43,6 +46,11 @@ public class PlatformController : RaycastController
 
   Vector3 CalculatePlatformMovement()
   {
+    if (Time.time < nextMoveTime)
+    {
+      return Vector3.zero;
+    }
+
     fromWaypointIndex %= globalWaypoints.Length;
     int toWaypointIndex = (fromWaypointIndex + 1) % globalWaypoints.Length;
     float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex]);
@@ -63,7 +71,7 @@ public class PlatformController : RaycastController
           System.Array.Reverse(globalWaypoints);
         }
       }
-
+      nextMoveTime = Time.time + waitTime;
     }
 
     return newPos - transform.position;
