@@ -54,5 +54,30 @@ public class PlatformController : RaycastController
         }
       }
     }
+
+    // Horizontally movingplatform
+    if (velocity.x != 0)
+    {
+      float rayLength = Mathf.Abs(velocity.x) + skinWidth;
+
+      for (int i = 0; i < horizontalRayCount; i++)
+      {
+        Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
+        rayOrigin += Vector2.up * (horizontalRaySpacing * i);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, passengerMask);
+  
+        if (hit)
+        {
+          if (!movedPassengers.Contains(hit.transform))
+          {
+            movedPassengers.Add(hit.transform);
+            float pushX = velocity.x - (hit.distance - skinWidth) * directionX;
+            float pushY = 0;
+
+            hit.transform.Translate(new Vector3(pushX, pushY));
+          }
+        }
+      }
+    }
   }
 }
