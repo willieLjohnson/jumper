@@ -21,6 +21,7 @@ public class PlatformController : RaycastController
     Vector3 velocity = move * Time.deltaTime;
 
     CalculatePassengerMovement(velocity);
+    
     MovePassengers(true);
     transform.Translate(velocity);
     MovePassengers(false);
@@ -32,7 +33,7 @@ public class PlatformController : RaycastController
     {
       if (passenger.moveBeforePlatform == beforeMovePlatform)
       {
-        passenger.transform.GetComponent<Controller2D>().Move(passenger.velocity);
+        passenger.transform.GetComponent<Controller2D>().Move(passenger.velocity, passenger.standingOnPlatform);
       }
     }
   }
