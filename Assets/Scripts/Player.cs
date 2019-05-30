@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
   float accelerationTimeGrounded = 0.1f;
   float movesSpeed = 6;
 
+  public Vector2 wallJumpClimb;
+  public Vector2 wallJumpOff;
+  public Vector2 wallLeap;
   public float wallSlideSpeedMax = 3;
 
   float gravity;
@@ -31,6 +34,9 @@ public class Player : MonoBehaviour
 
   void Update()
   {
+    Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    int wallDirX = (controller.collisions.left) ? -1 : 1;
+
     bool wallSliding = false;
     if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
     {
@@ -47,11 +53,31 @@ public class Player : MonoBehaviour
       velocity.y = 0;
     }
 
-    Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-    if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
+    if (Input.GetKeyDown(KeyCode.Space))
     {
-      velocity.y = jumpVelocity;
+      if (wallSliding)
+      {
+        if (wallDirX == input.x)
+        {
+          velocity.x = -wallDirX * wallJumpClimb.x;
+          velocity.y = wallJumpClimb.y;
+        }
+        else if (input.x == 0)
+        {
+          velocity.x = -wallDirX * wallJumpOff.x;
+          velocity.y = wallJumpOff.y;
+        }
+        else
+        {
+          velocity.x = -wallDirX * wallLeap.x;
+          velocity.y = wallLeap.y;
+        }
+      }
+
+      if (controller.collisions.below)
+      {
+        velocity.y = jumpVelocity;
+      }
     }
 
     float targetVelocityX = input.x * movesSpeed;
