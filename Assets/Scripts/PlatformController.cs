@@ -8,6 +8,7 @@ public class PlatformController : RaycastController
   public Vector3 move;
 
   public Vector3[] localWaypoints;
+  Vector3[] globalWaypoints;
 
   List<PassengerMovement> passengerMovement;
   Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
@@ -15,6 +16,12 @@ public class PlatformController : RaycastController
   public override void Start()
   {
     base.Start();
+
+    globalWaypoints = new Vector3[localWaypoints.Length];
+    for (int i = 0; i < localWaypoints.Length; i++)
+    {
+      globalWaypoints[i] = localWaypoints[i] + transform.position;
+    }
   }
 
   void Update()
@@ -155,7 +162,7 @@ public class PlatformController : RaycastController
 
       for (int i = 0; i < localWaypoints.Length; i++)
       {
-        Vector3 globalWaypointsPos = localWaypoints[i] + transform.position;
+        Vector3 globalWaypointsPos = (Application.isPlaying) ? globalWaypoints[i] : localWaypoints[i] + transform.position;
         Gizmos.DrawLine(globalWaypointsPos - Vector3.up * size, globalWaypointsPos + Vector3.up * size);
         Gizmos.DrawLine(globalWaypointsPos - Vector3.left * size, globalWaypointsPos + Vector3.left * size);
       }
