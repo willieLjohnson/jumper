@@ -10,6 +10,7 @@ public class PlatformController : RaycastController
   Vector3[] globalWaypoints;
 
   public float speed;
+  public bool cyclic;
   int fromWaypointIndex;
   float percentBetweenWaypoints;
 
@@ -42,7 +43,8 @@ public class PlatformController : RaycastController
 
   Vector3 CalculatePlatformMovement()
   {
-    int toWaypointIndex = fromWaypointIndex + 1;
+    fromWaypointIndex %= globalWaypoints.Length;
+    int toWaypointIndex = (fromWaypointIndex + 1) % globalWaypoints.Length;
     float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex]);
     percentBetweenWaypoints += Time.deltaTime * speed / distanceBetweenWaypoints;
 
@@ -52,11 +54,16 @@ public class PlatformController : RaycastController
     {
       percentBetweenWaypoints = 0;
       fromWaypointIndex++;
-      if (fromWaypointIndex >= globalWaypoints.Length - 1)
+
+      if (!cyclic)
       {
-        fromWaypointIndex = 0;
-        System.Array.Reverse(globalWaypoints);
+        if (fromWaypointIndex >= globalWaypoints.Length - 1)
+        {
+          fromWaypointIndex = 0;
+          System.Array.Reverse(globalWaypoints);
+        }
       }
+
     }
 
     return newPos - transform.position;
