@@ -1,5 +1,13 @@
 {
-  "cSpell.words": [
-    "Mathf"
-  ]
+  "cSpell.words": ["Mathf"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".vscode": true,
+    ".vs": true,
+    "**/*.meta": true
+  }
 }
