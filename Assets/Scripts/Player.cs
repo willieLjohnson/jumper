@@ -89,7 +89,18 @@ public class Player : MonoBehaviour
 
     if (controller.collisions.below)
     {
-      velocity.y = maxJumpVelocity;
+      if (controller.collisions.slidingDownMaxSlope)
+      {
+        if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
+        {
+          velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+          velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+        }
+      }
+      else
+      {
+        velocity.y = maxJumpVelocity;
+      }
     }
   }
 
