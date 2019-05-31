@@ -9,7 +9,8 @@ public class Controller2D : RaycastController
   float maxDescendAngle = 75;
 
   public CollisionInfo collisions;
-  Vector2 playerInput;
+  [HideInInspector]
+  public Vector2 playerInput;
 
   public override void Start()
   {
@@ -164,7 +165,7 @@ public class Controller2D : RaycastController
 
     if (collisions.climbingSlope)
     {
-      float directionX = Mathf.Sign(velocity.x); 
+      float directionX = Mathf.Sign(velocity.x);
       rayLength = Mathf.Abs(velocity.x) + skinWidth;
       Vector2 rayOrigin = ((directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight) + Vector2.up * velocity.y;
       RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
