@@ -9,6 +9,7 @@ public class Controller2D : RaycastController
   float maxDescendAngle = 75;
 
   public CollisionInfo collisions;
+  Vector2 playerInput;
 
   public override void Start()
   {
@@ -16,11 +17,17 @@ public class Controller2D : RaycastController
     collisions.faceDir = 1;
   }
 
-  public void Move(Vector3 velocity, bool standingOnPlatform = false)
+  public void Move(Vector3 velocity, bool standingOnPlatform)
+  {
+    Move(velocity, Vector2.zero, standingOnPlatform);
+  }
+
+  public void Move(Vector3 velocity, Vector2 input, bool standingOnPlatform = false)
   {
     UpdateRayCastOrigins();
     collisions.Reset();
     collisions.velocityOld = velocity;
+    playerInput = input;
 
     if (velocity.x != 0)
     {
@@ -99,7 +106,7 @@ public class Controller2D : RaycastController
 
           if (collisions.climbingSlope)
           {
-            velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad * Mathf.Abs(velocity.x));
+            velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
           }
 
           collisions.left = directionX == -1;
@@ -127,6 +134,10 @@ public class Controller2D : RaycastController
         if (hit.collider.tag == "Through")
         {
           if (directionY == 1 || hit.distance == 0)
+          {
+            continue;
+          }
+          if (playerInput.y == -1)
           {
             continue;
           }
