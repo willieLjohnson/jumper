@@ -25,7 +25,7 @@ public class Controller2D : RaycastController
   public void Move(Vector2 moveAmount, Vector2 input, bool standingOnPlatform = false)
   {
     UpdateRayCastOrigins();
-    
+
     collisions.Reset();
     collisions.moveAmountOld = moveAmount;
     playerInput = input;
@@ -98,7 +98,7 @@ public class Controller2D : RaycastController
             distanceToSlopeStart = hit.distance - skinWidth;
             moveAmount.x -= distanceToSlopeStart * directionX;
           }
-          ClimbSlope(ref moveAmount, slopeAngle);
+          ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
           moveAmount.x += distanceToSlopeStart * directionX;
         }
 
@@ -179,12 +179,13 @@ public class Controller2D : RaycastController
         {
           moveAmount.x = (hit.distance - skinWidth) * directionX;
           collisions.slopeAngle = slopeAngle;
+          collisions.slopeNormal = hit.normal;
         }
       }
     }
   }
 
-  void ClimbSlope(ref Vector2 moveAmount, float slopeAngle)
+  void ClimbSlope(ref Vector2 moveAmount, float slopeAngle, Vector2 slopeNormal)
   {
     float moveDistance = Mathf.Abs(moveAmount.x);
     float climbmoveAmountY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
@@ -195,7 +196,8 @@ public class Controller2D : RaycastController
       moveAmount.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign(moveAmount.x);
       collisions.below = true;
       collisions.climbingSlope = true;
-      collisions.slopeAngle = slopeAngle;
+      collisions.slopeNormal = slopeNormal;
+
     }
   }
 
@@ -230,6 +232,8 @@ public class Controller2D : RaycastController
               collisions.slopeAngle = slopeAngle;
               collisions.descendingSlope = true;
               collisions.below = true;
+              collisions.slopeNormal = hit.normal;
+
             }
           }
         }
@@ -249,6 +253,7 @@ public class Controller2D : RaycastController
 
         collisions.slopeAngle = slopeAngle;
         collisions.slidingDownMaxSlope = true;
+        collisions.slopeNormal = hit.normal;
       }
     }
   }
@@ -268,6 +273,7 @@ public class Controller2D : RaycastController
     public bool slidingDownMaxSlope;
 
     public float slopeAngle, slopeAngleOld;
+    public Vector2 slopeNormal;
     public Vector2 moveAmountOld;
     public int faceDir;
     public bool fallingThroughPlatform;
@@ -279,6 +285,7 @@ public class Controller2D : RaycastController
       climbingSlope = false;
       descendingSlope = false;
       slidingDownMaxSlope = false;
+      slopeNormal = Vector2.zero;
 
       slopeAngleOld = slopeAngle;
       slopeAngle = 0;
