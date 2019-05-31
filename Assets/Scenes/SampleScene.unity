@@ -549,8 +549,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 382062799}
-  focusAreaSize: {x: 3, y: 5}
   verticalOffset: 1
+  lookAheadDistX: 4
+  lookSmoothTimeX: 0.2
+  verticalSmoothTime: 0.2
+  focusAreaSize: {x: 3, y: 5}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
