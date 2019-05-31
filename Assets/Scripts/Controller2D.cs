@@ -25,19 +25,22 @@ public class Controller2D : RaycastController
   public void Move(Vector2 moveAmount, Vector2 input, bool standingOnPlatform = false)
   {
     UpdateRayCastOrigins();
+    
     collisions.Reset();
     collisions.moveAmountOld = moveAmount;
     playerInput = input;
+
+
+    if (moveAmount.y < 0)
+    {
+      DescendSlope(ref moveAmount);
+    }
 
     if (moveAmount.x != 0)
     {
       collisions.faceDir = (int)Mathf.Sign(moveAmount.x);
     }
 
-    if (moveAmount.y < 0)
-    {
-      DescendSlope(ref moveAmount);
-    }
 
     HorizontalCollisions(ref moveAmount);
 
