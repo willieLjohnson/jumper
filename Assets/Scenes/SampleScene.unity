@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 96569764}
   - component: {fileID: 96569763}
   - component: {fileID: 96569762}
+  - component: {fileID: 96569766}
   m_Layer: 9
   m_Name: Obstacle (2)
   m_TagString: Through
@@ -225,6 +226,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96569766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96569761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ee7ff915c79954182476f6f7868528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  passengerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  localWaypoints:
+  - {x: 0, y: 2.56, z: 0}
+  - {x: 0, y: -1.53, z: 0}
+  speed: 1
+  cyclic: 1
+  waitTime: 0
+  easeAmount: 1
 --- !u!1 &234458484
 GameObject:
   m_ObjectHideFlags: 0
