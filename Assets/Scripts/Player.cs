@@ -41,6 +41,19 @@ public class Player : MonoBehaviour
 
   }
 
+  void Update()
+  {
+    CalculateVelocity();
+    HandleWallSliding();
+
+    controller.Move(velocity * Time.deltaTime, directionalInput);
+
+    if (controller.collisions.above || controller.collisions.below)
+    {
+      velocity.y = 0;
+    }
+  }
+
   public void SetDirectionalInput(Vector2 input)
   {
     directionalInput = input;
@@ -79,12 +92,10 @@ public class Player : MonoBehaviour
       velocity.y = minJumpVelocity;
   }
 
-  void Update()
+
+  void HandleWallSliding()
   {
     wallDirX = (controller.collisions.left) ? -1 : 1;
-
-    float targetVelocityX = directionalInput.x * movesSpeed;
-    velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
     wallSliding = false;
     if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
@@ -115,13 +126,14 @@ public class Player : MonoBehaviour
         timeToWallUnstick = wallStickTime;
       }
     }
+  }
 
+  void CalculateVelocity()
+  {
+
+    float targetVelocityX = directionalInput.x * movesSpeed;
+    velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
     velocity.y += gravity * Time.deltaTime;
-    controller.Move(velocity * Time.deltaTime, directionalInput);
 
-    if (controller.collisions.above || controller.collisions.below)
-    {
-      velocity.y = 0;
-    }
   }
 }
