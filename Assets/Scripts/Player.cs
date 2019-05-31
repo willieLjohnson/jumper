@@ -50,7 +50,8 @@ public class Player : MonoBehaviour
 
     if (controller.collisions.above || controller.collisions.below)
     {
-      velocity.y = 0;
+      if (!controller.collisions.slidingDownMaxSlope)
+        velocity.y = 0;
     }
   }
 
