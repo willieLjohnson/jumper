@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackController : RaycastController
 {
-  public int damage = 35;
+  public int damage = 110;
   public Vector2 pushForce = new Vector2(0.2f, 0.05f);
   public float range = 2;
 
