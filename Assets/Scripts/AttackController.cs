@@ -73,7 +73,7 @@ public class AttackController : RaycastController
     for (int i = 0; i < verticalRayCount; i++)
     {
       Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
-      rayOrigin += Vector2.right * (verticalRaySpacing * i + moveAmount.x);
+      rayOrigin += Vector2.right * (verticalRaySpacing * i);
       RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, range, collisionMask);
 
       Debug.DrawRay(rayOrigin, Vector2.up * directionY * range, Color.yellow);
