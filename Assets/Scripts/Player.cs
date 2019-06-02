@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
   float velocityXSmoothing;
 
   Controller2D controller;
+  AttackController attackController;
 
   Vector2 directionalInput;
   bool wallSliding;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
   void Start()
   {
     controller = GetComponent<Controller2D>();
+    attackController = GetComponent<AttackController>();
 
     gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -108,6 +110,11 @@ public class Player : MonoBehaviour
     {
       velocity.y = minJumpVelocity;
     }
+  }
+
+  public void OnAttackButtonDown()
+  {
+    attackController.HorizontalAttack(velocity);
   }
 
 
