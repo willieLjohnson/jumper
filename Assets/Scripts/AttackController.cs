@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class AttackController : RaycastController
 {
+  public int damage = 35;
+  public float pushForce = 0.5f;
+
+  public float range = 2;
+
+  public override void Start()
+  {
+    base.Start();
+    range *= collider.bounds.size.x;
+  }
+
   public void HorizontalAttack(Vector2 moveAmount)
   {
     UpdateRaycastOrigins();
@@ -11,15 +22,14 @@ public class AttackController : RaycastController
     Collider2D otherCollider = null;
 
     float directionX = Mathf.Sign(moveAmount.x);
-    float rayLength = collider.bounds.size.x * 2;
 
     for (int i = 0; i < horizontalRayCount; i++)
     {
       Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
       rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-      RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
+      RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, range, collisionMask);
 
-      Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.yellow);
+      Debug.DrawRay(rayOrigin, Vector2.right * directionX * range, Color.yellow);
 
       if (hit)
       {
@@ -31,9 +41,15 @@ public class AttackController : RaycastController
         otherCollider = hit.collider;
       }
 
-      if (otherCollider != null && otherCollider.gameObject != this.gameObject && otherCollider.tag == "Pushable")
+      if (otherCollider != null && otherCollider.gameObject != this.gameObject && i == 0) // && otherCollider.tag == "Pushable"
       {
-        Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(rayLength * directionX, rayLength / 4));
+        Destructable destructable = otherCollider.gameObject.GetComponent<Destructable>();
+        if (destructable)
+        {
+          Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(pushForce * directionX, pushForce / 2));
+          destructable.Damage(damage);
+        }
+
         //print (moveAmount.y);
         // moveAmount = new Vector2(pushAmount.x * 10, moveAmount.y + pushAmount.y);
       }
