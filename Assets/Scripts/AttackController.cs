@@ -7,11 +7,11 @@ public class AttackController : RaycastController
   public void HorizontalAttack(Vector2 moveAmount)
   {
     UpdateRaycastOrigins();
-    float originalMoveAmountX = moveAmount.x;
+    // float originalMoveAmountX = moveAmount.x;
     Collider2D otherCollider = null;
 
     float directionX = Mathf.Sign(moveAmount.x);
-    float rayLength = (Mathf.Abs(moveAmount.x) + skinWidth) * 4;
+    float rayLength = collider.bounds.size.x * 2;
 
     for (int i = 0; i < horizontalRayCount; i++)
     {
@@ -23,7 +23,6 @@ public class AttackController : RaycastController
 
       if (hit)
       {
-
         if (hit.distance == 0)
         {
           continue;
@@ -34,7 +33,7 @@ public class AttackController : RaycastController
 
       if (otherCollider != null && otherCollider.gameObject != this.gameObject && otherCollider.tag == "Pushable")
       {
-        Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(originalMoveAmountX, 0));
+        Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(rayLength * directionX, rayLength / 4));
         //print (moveAmount.y);
         // moveAmount = new Vector2(pushAmount.x * 10, moveAmount.y + pushAmount.y);
       }
