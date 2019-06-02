@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Destructable : MonoBehaviour
 {
-  int health = 100;
+  private int health = 100;
 
   // Update is called once per frame
   void Update()

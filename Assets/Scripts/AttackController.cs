@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackController : RaycastController
 {
   public int damage = 35;
-  public float pushForce = 0.5f;
+  public Vector2 pushForce = new Vector2(0.2f, 0.05f);
 
   public float range = 2;
 
@@ -46,8 +46,14 @@ public class AttackController : RaycastController
         Destructable destructable = otherCollider.gameObject.GetComponent<Destructable>();
         if (destructable)
         {
-          Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(pushForce * directionX, pushForce / 2));
           destructable.Damage(damage);
+        }
+
+
+        if (otherCollider.tag == "Pushable")
+        {
+          PushableObject pushable = otherCollider.gameObject.GetComponent<PushableObject>();
+          pushable.Push(new Vector2(pushForce.x * directionX, pushForce.y));
         }
 
         //print (moveAmount.y);
