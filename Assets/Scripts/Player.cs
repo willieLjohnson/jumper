@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
   public float maxJumpHeight = 4;
   public float minJumpHeight = 1;
   public float timeToJumpApex = .4f;
-  float accelerationTimeAirborne = .2f;
+  float accelerationTimeAirborne = .15f;
   float accelerationTimeGrounded = .1f;
   float moveSpeed = 13;
 
@@ -114,10 +114,7 @@ public class Player : MonoBehaviour
 
   public void OnAttackButtonDown()
   {
-    if (directionalInput.x != 0)
-      attackController.HorizontalAttack(ref velocity, directionalInput);
-    if (directionalInput.y != 0)
-      attackController.VerticalAttack(ref velocity, directionalInput);
+    attackController.Attack(ref velocity, directionalInput);
   }
 
 
