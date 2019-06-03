@@ -135,7 +135,7 @@ public class Controller2D : RaycastController
   void VerticalCollisions(ref Vector2 moveAmount)
   {
     float directionY = Mathf.Sign(moveAmount.y);
-    float rayLength = Mathf.Abs(moveAmount.y) + skinWidth;
+    float rayLength = (Mathf.Abs(moveAmount.y) + skinWidth) * 2;
 
     for (int i = 0; i < verticalRayCount; i++)
     {
@@ -144,7 +144,7 @@ public class Controller2D : RaycastController
       rayOrigin += Vector2.right * (verticalRaySpacing * i + moveAmount.x);
       RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
-      Debug.DrawRay(rayOrigin, Vector2.up * directionY, Color.red);
+      Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 
       if (hit)
       {
