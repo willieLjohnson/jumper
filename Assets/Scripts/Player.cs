@@ -115,9 +115,9 @@ public class Player : MonoBehaviour
   public void OnAttackButtonDown()
   {
     if (directionalInput.x != 0)
-      attackController.HorizontalAttack(velocity, directionalInput);
+      attackController.HorizontalAttack(ref velocity, directionalInput);
     if (directionalInput.y != 0)
-      attackController.VerticalAttack(velocity, directionalInput);
+      attackController.VerticalAttack(ref velocity, directionalInput);
   }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PushableObject : MonoBehaviour
 {
+
   public float gravity = 12;
   Controller2D controller;
   Vector3 velocity;
@@ -27,5 +28,12 @@ public class PushableObject : MonoBehaviour
   public Vector2 Push(Vector2 amount)
   {
     return controller.Move(amount, false);
+  }
+
+  public Vector2 Launch(Vector2 amount)
+  {
+    velocity.y = amount.y;
+    velocity.x = amount.x;
+    return velocity;
   }
 }

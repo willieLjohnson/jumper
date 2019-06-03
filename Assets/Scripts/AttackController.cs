@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackController : RaycastController
 {
   public int damage = 110;
-  public Vector2 pushForce = new Vector2(0.2f, 0.05f);
+  public Vector2 pushForce = new Vector2(1f, 0.5f);
   public float range = 2;
 
   public override void Start()
@@ -14,10 +14,10 @@ public class AttackController : RaycastController
     range *= collider.bounds.size.x;
   }
 
-  public void HorizontalAttack(Vector2 moveAmount, Vector2 input)
+  public void HorizontalAttack(ref Vector3 moveAmount, Vector2 input)
   {
     UpdateRaycastOrigins();
-    // float originalMoveAmountX = moveAmount.x;
+    float originalMoveAmountX = moveAmount.x;
     Collider2D otherCollider = null;
 
     float directionX = Mathf.Sign(input.x);
@@ -53,16 +53,16 @@ public class AttackController : RaycastController
         if (otherCollider.tag == "Pushable")
         {
           PushableObject pushable = otherCollider.gameObject.GetComponent<PushableObject>();
-          pushable.Push(new Vector2(pushForce.x * directionX, pushForce.y));
+          Vector2 pushAmount = pushable.Launch(new Vector2(pushForce.x * directionX, pushForce.y));
+          moveAmount = new Vector2(pushAmount.x + moveAmount.x, moveAmount.y);
         }
 
         //print (moveAmount.y);
-        // moveAmount = new Vector2(pushAmount.x * 10, moveAmount.y + pushAmount.y);
       }
     }
   }
 
-  public void VerticalAttack(Vector2 moveAmount, Vector2 input)
+  public void VerticalAttack(ref Vector3 moveAmount, Vector2 input)
   {
     UpdateRaycastOrigins();
     // float originalMoveAmountX = moveAmount.x;
@@ -100,11 +100,11 @@ public class AttackController : RaycastController
         if (otherCollider.tag == "Pushable")
         {
           PushableObject pushable = otherCollider.gameObject.GetComponent<PushableObject>();
-          pushable.Push(new Vector2(pushForce.x, pushForce.y * directionY));
+          pushable.Launch(new Vector2(pushForce.x, pushForce.y * directionY));
         }
 
         //print (moveAmount.y);
-        // moveAmount = new Vector2(pushAmount.x * 10, moveAmount.y + pushAmount.y);
+        moveAmount = new Vector2(moveAmount.x, moveAmount.y + pushForce.y);
       }
     }
   }
