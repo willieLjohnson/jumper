@@ -59,6 +59,10 @@ public class AttackController : RaycastController
 
         //print (moveAmount.y);
       }
+      else
+      {
+        moveAmount = new Vector2(moveAmount.x + (pushForce.x / 5 * directionX), moveAmount.y);
+      }
     }
   }
 
@@ -101,10 +105,14 @@ public class AttackController : RaycastController
         {
           PushableObject pushable = otherCollider.gameObject.GetComponent<PushableObject>();
           pushable.Launch(new Vector2(pushForce.x, pushForce.y * directionY));
+          moveAmount = new Vector2(moveAmount.x, moveAmount.y + pushForce.y);
         }
 
         //print (moveAmount.y);
-        moveAmount = new Vector2(moveAmount.x, moveAmount.y + pushForce.y);
+      }
+      else
+      {
+        moveAmount = new Vector2(moveAmount.x, moveAmount.y + (pushForce.y / 2 * directionY));
       }
     }
   }
