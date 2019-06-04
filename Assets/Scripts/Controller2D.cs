@@ -62,7 +62,7 @@ public class Controller2D : RaycastController
     Collider2D otherCollider = null;
 
     float directionX = collisions.faceDir;
-    float rayLength = Mathf.Abs(moveAmount.x) + skinWidth;
+    float rayLength = (Mathf.Abs(moveAmount.x) + skinWidth) * 2;
 
     if (Mathf.Abs(moveAmount.x) < skinWidth)
     {
