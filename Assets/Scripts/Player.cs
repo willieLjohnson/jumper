@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         velocity.x = -wallDirX * wallJumpClimb.x;
         velocity.y = wallJumpClimb.y;
       }
-      else if (directionalInput.x == 0)
+      else if (directionalInput.y < 0)
       {
         velocity.x = -wallDirX * wallJumpOff.x;
         velocity.y = wallJumpOff.y;
