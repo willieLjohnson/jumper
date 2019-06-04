@@ -74,6 +74,7 @@ public class AttackController : RaycastController
   {
     UpdateRaycastOrigins();
     Collider2D otherCollider = null;
+    HashSet<Collider2D> attackedEnemies = new HashSet<Collider2D>();
 
     float directionX = Mathf.Sign(attack.input.x);
 
@@ -95,8 +96,9 @@ public class AttackController : RaycastController
         otherCollider = hit.collider;
       }
 
-      if (otherCollider != null && otherCollider.gameObject != this.gameObject && i == 0) // && otherCollider.tag == "Pushable"
+      if (otherCollider != null && otherCollider.gameObject != this.gameObject && !attackedEnemies.Contains(otherCollider)) // && otherCollider.tag == "Pushable"
       {
+        attackedEnemies.Add(otherCollider);
         Destructable destructable = otherCollider.gameObject.GetComponent<Destructable>();
         if (destructable)
         {
@@ -113,6 +115,7 @@ public class AttackController : RaycastController
 
         //print (moveAmount.y);
       }
+
     }
   }
 
@@ -121,6 +124,7 @@ public class AttackController : RaycastController
     UpdateRaycastOrigins();
     // float originalMoveAmountX = moveAmount.x;
     Collider2D otherCollider = null;
+    HashSet<Collider2D> attackedEnemies = new HashSet<Collider2D>();
 
     float directionY = Mathf.Sign(attack.input.y);
 
@@ -142,8 +146,9 @@ public class AttackController : RaycastController
         otherCollider = hit.collider;
       }
 
-      if (otherCollider != null && otherCollider.gameObject != this.gameObject && i == 0) // && otherCollider.tag == "Pushable"
+      if (otherCollider != null && otherCollider.gameObject != this.gameObject && !attackedEnemies.Contains(otherCollider)) // && otherCollider.tag == "Pushable"
       {
+        attackedEnemies.Add(otherCollider);
         Destructable destructable = otherCollider.gameObject.GetComponent<Destructable>();
         if (destructable)
         {
