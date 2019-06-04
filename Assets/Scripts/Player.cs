@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
   public void OnAttackButtonDown(Vector3 mousePos)
   {
     Vector3 attackPoint = mousePos - transform.position;
-    attackController.Attack(ref velocity, attackPoint);
+    attackController.Attack(ref velocity, attackPoint, controller.collisions.below);
   }
 
 

@@ -46,20 +46,22 @@ public class AttackController : RaycastController
     }
   }
 
-  public void Attack(ref Vector3 moveAmount, Vector2 direction)
+  public void Attack(ref Vector3 moveAmount, Vector2 direction, bool isStanding)
   {
     // attack.Reset();
     direction = direction.normalized;
     if (direction.x != 0)
     {
-      moveAmount = new Vector2(moveAmount.x + (pushForce.x * direction.x), moveAmount.y);
+      float pushForceX = pushForce.x * direction.x * ((isStanding) ? 1 : 0.5f);
+      moveAmount = new Vector2(moveAmount.x + pushForceX, moveAmount.y);
       attack.horizontal = true;
       attack.moveAmount = moveAmount;
     }
 
     if (direction.y != 0)
     {
-      moveAmount = new Vector2(moveAmount.x, moveAmount.y + (pushForce.y * direction.y));
+      float pushForceY = pushForce.y * direction.y * ((isStanding) ? 1 : 0.5f);
+      moveAmount = new Vector2(moveAmount.x, moveAmount.y + pushForceY);
       attack.vertical = true;
       attack.moveAmount = moveAmount;
     }
