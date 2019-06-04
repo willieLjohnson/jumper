@@ -6,10 +6,12 @@ public class PlayerInput : MonoBehaviour
 {
 
   Player player;
+  Camera cam;
 
   void Start()
   {
     player = GetComponent<Player>();
+    cam = Camera.main;
   }
 
   void Update()
@@ -27,7 +29,7 @@ public class PlayerInput : MonoBehaviour
     }
     if (Input.GetMouseButtonDown(0))
     {
-      player.OnAttackButtonDown();
+      player.OnAttackButtonDown(cam.ScreenToWorldPoint(Input.mousePosition));
     }
   }
 }

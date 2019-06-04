@@ -112,9 +112,10 @@ public class Player : MonoBehaviour
     }
   }
 
-  public void OnAttackButtonDown()
+  public void OnAttackButtonDown(Vector3 mousePos)
   {
-    attackController.Attack(ref velocity, directionalInput);
+    Vector3 attackPoint = mousePos - transform.position;
+    attackController.Attack(ref velocity, attackPoint);
   }
 
 

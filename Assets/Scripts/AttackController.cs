@@ -46,26 +46,26 @@ public class AttackController : RaycastController
     }
   }
 
-  public void Attack(ref Vector3 moveAmount, Vector2 input)
+  public void Attack(ref Vector3 moveAmount, Vector2 direction)
   {
     // attack.Reset();
-    print(input);
-    if (input.x != 0)
+    direction = direction.normalized;
+    if (direction.x != 0)
     {
-      moveAmount = new Vector2(moveAmount.x + (pushForce.x * input.x), moveAmount.y);
+      moveAmount = new Vector2(moveAmount.x + (pushForce.x * direction.x), moveAmount.y);
       attack.horizontal = true;
       attack.moveAmount = moveAmount;
     }
 
-    if (input.y != 0)
+    if (direction.y != 0)
     {
-      moveAmount = new Vector2(moveAmount.x, moveAmount.y + (pushForce.y * input.y));
+      moveAmount = new Vector2(moveAmount.x, moveAmount.y + (pushForce.y * direction.y));
       attack.vertical = true;
       attack.moveAmount = moveAmount;
     }
 
     attack.isAttacking = true;
-    attack.input = input;
+    attack.direction = direction;
 
     timeToFinishAttacking = attackTime;
   }
@@ -76,7 +76,7 @@ public class AttackController : RaycastController
     Collider2D otherCollider = null;
     HashSet<Collider2D> attackedEnemies = new HashSet<Collider2D>();
 
-    float directionX = Mathf.Sign(attack.input.x);
+    float directionX = Mathf.Sign(attack.direction.x);
 
     for (int i = 0; i < horizontalRayCount; i++)
     {
@@ -126,7 +126,7 @@ public class AttackController : RaycastController
     Collider2D otherCollider = null;
     HashSet<Collider2D> attackedEnemies = new HashSet<Collider2D>();
 
-    float directionY = Mathf.Sign(attack.input.y);
+    float directionY = Mathf.Sign(attack.direction.y);
 
     for (int i = 0; i < verticalRayCount; i++)
     {
@@ -174,14 +174,14 @@ public class AttackController : RaycastController
     public bool vertical;
     public bool isAttacking;
     public Vector2 moveAmount;
-    public Vector2 input;
+    public Vector2 direction;
 
     public void Reset()
     {
       horizontal = false;
       vertical = false;
       isAttacking = false;
-      input = Vector2.zero;
+      direction = Vector2.zero;
       moveAmount = Vector2.zero;
     }
   }
