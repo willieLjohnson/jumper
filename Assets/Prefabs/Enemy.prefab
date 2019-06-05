@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 983344053650577239}
   - component: {fileID: 983344053650577232}
   - component: {fileID: 8777413987290980043}
+  - component: {fileID: 4368452351250171609}
   m_Layer: 10
-  m_Name: Block
+  m_Name: Enemy
   m_TagString: Pushable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   horizontalRayCount: 4
   verticalRayCount: 4
   horizontalRaySpacing: 0
@@ -172,5 +173,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  gravity: 12
-  moveSpeed: 20
+  moveSpeed: 2
+--- !u!114 &4368452351250171609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983344053650577238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5654f165649d874db6850b5682150d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  damage: 2
+  pushForce: {x: 10, y: 10}
+  range: 2
+  attackTime: 0.05
