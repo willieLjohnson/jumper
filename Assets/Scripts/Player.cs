@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
   public AudioClip jumpClip;
   public AudioClip attackClip;
   public AudioClip hitClip;
+  public AudioClip walkClip;
 
   void Start()
   {
@@ -53,6 +54,16 @@ public class Player : MonoBehaviour
     HandleWallSliding();
 
     controller.Move(velocity * Time.deltaTime, directionalInput);
+    if (directionalInput.x != 0 && controller.collisions.below) {
+      if (!audioSource.isPlaying)
+      {
+        audioSource.clip = walkClip;
+        audioSource.pitch = Random.Range(0.5f, 1.3f);
+        audioSource.Play();
+      } else {
+        audioSource.pitch = 1f;
+      }
+    }
 
     if (controller.collisions.above || controller.collisions.below)
     {
@@ -95,6 +106,7 @@ public class Player : MonoBehaviour
     }
     if (controller.collisions.below)
     {
+      audioSource.pitch = Random.Range(0.7f, 1.5f);
       audioSource.PlayOneShot(jumpClip);
       if (controller.collisions.slidingDownMaxSlope)
       {
@@ -108,6 +120,8 @@ public class Player : MonoBehaviour
       {
         velocity.y = maxJumpVelocity;
       }
+    } else {
+      audioSource.pitch = 1f;
     }
   }
 

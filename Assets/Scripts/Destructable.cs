@@ -6,6 +6,9 @@ public class Destructable : MonoBehaviour
 {
   private int health = 100;
 
+  public AudioSource audioSource;
+  public AudioClip deathClip;
+  public AudioClip damagedClip;
   // Update is called once per frame
   void Update()
   {
@@ -16,10 +19,12 @@ public class Destructable : MonoBehaviour
   public void Damage(int amount)
   {
     health -= amount;
+    audioSource.PlayOneShot(damagedClip);
   }
 
   private void Die()
   {
+    audioSource.PlayOneShot(deathClip);
     Destroy(gameObject);
   }
 }
