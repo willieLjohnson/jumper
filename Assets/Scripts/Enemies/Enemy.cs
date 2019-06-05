@@ -10,14 +10,14 @@ public class Enemy : MonoBehaviour
 
   public Transform target;
 
-  float gravity = -12;
+  float gravity = 12f;
 
-  public float moveSpeed = 20;
+  public float moveSpeed = 50;
 
   float accelerationTimeGrounded = 0.1f;
   float accelerationTimeAirborne = 0.2f;
 
-  Vector2 velocity;
+  Vector3 velocity;
 
 
   float velocityXSmoothing;
@@ -37,30 +37,35 @@ public class Enemy : MonoBehaviour
   void Update()
   {
     CalculateVelocity();
-    controller.Move(velocity, false);
+    controller.Move(velocity * Time.deltaTime, false);
+
+    if (controller.collisions.below)
+    {
+      velocity.y = 0;
+    }
 
     // Check if the position of the cube and sphere are approximately equal.
-    if (Vector3.Distance(transform.position, target.position) < 0.001f)
+    if (Vector3.Distance(transform.position, target.position) < 0.01f)
     {
       // Swap the position of the cylinder.
-      target.position *= -1.0f;
+      target.gameObject.GetComponent<Destructable>().Damage(50);
     }
+
   }
 
   void CalculateVelocity()
   {
-    Vector2 direction = (target.position - transform.position).normalized;
-    Vector2 moveAmount = direction * moveSpeed * Time.deltaTime; // calculate distance to move
+    Vector2 distance = (target.position - transform.position).normalized;
 
-    float targetVelocityX = direction.x * moveSpeed;
+    float targetVelocityX = Mathf.Sign(distance.x) * moveSpeed;
     velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
-    if (direction.y > 0 && controller.collisions.below)
+    if (distance.y >= 0.01 && controller.collisions.below)
     {
-      velocity.y = 1.5f;
+      velocity.y = 15f;
+      Debug.Log("Jump");
     }
 
-    velocity.y += gravity * Time.deltaTime;
-
+    velocity += Vector3.down * gravity * Time.deltaTime;
   }
 }
