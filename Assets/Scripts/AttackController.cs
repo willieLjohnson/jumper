@@ -10,10 +10,15 @@ public class AttackController : RaycastController
 
   public float attackTime = .05f;
 
+  public AudioSource audioSource;
+  public AudioClip damageClip;
+
   AttackInfo attack;
   float timeToFinishAttacking;
 
   Vector2 moveAmount;
+
+
 
   public override void Start()
   {
@@ -69,7 +74,7 @@ public class AttackController : RaycastController
   {
     UpdateRaycastOrigins();
     Collider2D otherCollider = null;
-    HashSet<Collider2D> attackedEnemies = new HashSet<Collider2D>();
+    HashSet<Transform> attackedEnemies = new HashSet<Transform>();
 
     float directionX = Mathf.Sign(attack.direction.x);
 
@@ -91,13 +96,14 @@ public class AttackController : RaycastController
         otherCollider = hit.collider;
       }
 
-      if (otherCollider != null && otherCollider.gameObject != this.gameObject && !attackedEnemies.Contains(otherCollider)) // && otherCollider.tag == "Pushable"
+      if (otherCollider != null && otherCollider.gameObject != this.gameObject && !attackedEnemies.Contains(otherCollider.transform)) // && otherCollider.tag == "Pushable"
       {
-        attackedEnemies.Add(otherCollider);
+        attackedEnemies.Add(otherCollider.transform);
         Destructable destructable = otherCollider.gameObject.GetComponent<Destructable>();
         if (destructable)
         {
           destructable.Damage(damage);
+          audioSource.PlayOneShot(damageClip);
         }
 
 
@@ -107,7 +113,6 @@ public class AttackController : RaycastController
           Vector2 pushAmount = pushable.Launch(new Vector2(pushForce.x * directionX, pushForce.y));
           // moveAmount = new Vector2(pushAmount.x + moveAmount.x, moveAmount.y);
         }
-
         //print (moveAmount.y);
       }
 

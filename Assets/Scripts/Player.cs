@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
   bool wallSliding;
   int wallDirX;
 
+  public AudioSource audioSource;
+  public AudioClip jumpClip;
+  public AudioClip attackClip;
+  public AudioClip hitClip;
+
   void Start()
   {
     controller = GetComponent<Controller2D>();
@@ -71,6 +76,7 @@ public class Player : MonoBehaviour
   {
     if (wallSliding)
     {
+      audioSource.PlayOneShot(jumpClip);
       if (wallDirX == directionalInput.x)
       {
         velocity.x = -wallDirX * wallJumpClimb.x;
@@ -89,6 +95,7 @@ public class Player : MonoBehaviour
     }
     if (controller.collisions.below)
     {
+      audioSource.PlayOneShot(jumpClip);
       if (controller.collisions.slidingDownMaxSlope)
       {
         if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
@@ -116,6 +123,7 @@ public class Player : MonoBehaviour
   {
     Vector3 attackPoint = mousePos - transform.position;
     attackController.Attack(ref velocity, attackPoint, controller.collisions.below);
+    audioSource.PlayOneShot(attackClip);
   }
 
 
