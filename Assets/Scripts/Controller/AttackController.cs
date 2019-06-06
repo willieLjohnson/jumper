@@ -26,8 +26,6 @@ public class AttackController : RaycastController
 
   private void Update()
   {
-    Debug.Log(timeToNextAttack + ", " + attack.isAttacking + ", " + timeToFinishAttacking);
-
     if (attack.isAttacking && timeToNextAttack < 0)
     {
       if (timeToFinishAttacking > 0)
