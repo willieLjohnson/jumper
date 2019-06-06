@@ -55,12 +55,8 @@ public class AttackController : RaycastController
     }
   }
 
-
   public void Attack(ref Vector3 moveAmount, Vector2 direction, bool isStanding)
   {
-    // attack.Reset();
-    Debug.Log("ATTACK!!");
-
     direction = direction.normalized;
 
     attack.horizontal = direction.x != 0;
@@ -110,14 +106,11 @@ public class AttackController : RaycastController
           destructable.Damage(damage);
         }
 
-
         if (otherCollider.tag == "Pushable")
         {
           PushableObject pushable = otherCollider.gameObject.GetComponent<PushableObject>();
           Vector2 pushAmount = pushable.Launch(new Vector2(pushForce.x * directionX, pushForce.y));
-          // moveAmount = new Vector2(pushAmount.x + moveAmount.x, moveAmount.y);
         }
-        //print (moveAmount.y);
       }
 
     }
@@ -164,10 +157,7 @@ public class AttackController : RaycastController
         {
           PushableObject pushable = otherCollider.gameObject.GetComponent<PushableObject>();
           pushable.Launch(new Vector2(pushForce.x, pushForce.y * directionY));
-          // moveAmount = new Vector2(moveAmount.x, moveAmount.y + pushForce.y);
         }
-
-        //print (moveAmount.y);
       }
     }
   }

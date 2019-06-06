@@ -14,7 +14,6 @@ public class Controller2D : RaycastController
   {
     base.Start();
     collisions.faceDir = 1;
-
   }
 
   public Vector2 Move(Vector2 moveAmount, bool standingOnPlatform)

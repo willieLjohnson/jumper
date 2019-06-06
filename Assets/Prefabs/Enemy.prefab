@@ -160,6 +160,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
   damagedClip: {fileID: 8300000, guid: c6820d2d5d8e7d14e9ea8db8a63412d8, type: 3}
+  isDead: 0
 --- !u!114 &8777413987290980043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,4 +198,4 @@ MonoBehaviour:
   pushForce: {x: 1, y: 0.5}
   range: 2
   attackDuration: 0.05
-  attackDelay: 0.5
+  attackDelay: 1
