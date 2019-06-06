@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
   float gravity = 12f;
 
-  public float moveSpeed = 50;
+  float moveSpeed = 13f;
 
   float accelerationTimeGrounded = 0.1f;
   float accelerationTimeAirborne = 0.2f;
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
   void CalculateVelocity()
   {
     Vector2 distance = (target.position - transform.position);
-    Debug.Log(distance);
+    Debug.Log(velocity);
 
     // Chase target
     if (Mathf.Abs(distance.x) < 10 && Mathf.Abs(distance.y) < 10)
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
       }
 
       // Check if the position of the cube and sphere are approximately equal.
-      if (distance.x < 2f && distance.y < 2)
+      if (distance.x < 5f && distance.y < 5)
       {
         // Swap the position of the cylinder.
         attackController.Attack(ref velocity, distance.normalized, controller.collisions.below);

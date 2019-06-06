@@ -8,14 +8,15 @@ public class AttackController : RaycastController
   public Vector2 pushForce = new Vector2(1f, 0.5f);
   public float range = 2;
 
-  public float attackTime = .05f;
+  public float attackDuration = .05f;
 
-  AttackInfo attack;
+  public float attackDelay = 0;
+
+  public AttackInfo attack;
   float timeToFinishAttacking;
+  float timeToNextAttack;
 
   Vector2 moveAmount;
-
-
 
   public override void Start()
   {
@@ -25,11 +26,15 @@ public class AttackController : RaycastController
 
   private void Update()
   {
-    if (attack.isAttacking)
+    Debug.Log(timeToNextAttack + ", " + attack.isAttacking + ", " + timeToFinishAttacking);
+
+    if (attack.isAttacking && timeToNextAttack < 0)
     {
       if (timeToFinishAttacking > 0)
       {
+        timeToNextAttack = attackDelay;
         timeToFinishAttacking -= Time.deltaTime;
+
         if (attack.horizontal)
         {
           HorizontalAttack();
@@ -42,15 +47,22 @@ public class AttackController : RaycastController
       }
       else
       {
-        timeToFinishAttacking = attackTime;
+        timeToFinishAttacking = attackDuration;
         attack.Reset();
       }
     }
+    else
+    {
+      timeToNextAttack -= Time.deltaTime;
+    }
   }
+
 
   public void Attack(ref Vector3 moveAmount, Vector2 direction, bool isStanding)
   {
     // attack.Reset();
+    Debug.Log("ATTACK!!");
+
     direction = direction.normalized;
 
     attack.horizontal = direction.x != 0;
@@ -63,8 +75,6 @@ public class AttackController : RaycastController
 
     moveAmount = new Vector2(moveAmount.x + pushForceX, moveAmount.y + pushForceY);
     attack.moveAmount = moveAmount;
-
-    timeToFinishAttacking = attackTime;
   }
 
   public void HorizontalAttack()

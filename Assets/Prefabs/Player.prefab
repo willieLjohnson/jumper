@@ -193,7 +193,8 @@ MonoBehaviour:
   damage: 110
   pushForce: {x: 20, y: 15}
   range: 2
-  attackTime: 0.1
+  attackDuration: 0.05
+  attackDelay: 0
 --- !u!114 &-7528865229055209025
 MonoBehaviour:
   m_ObjectHideFlags: 0
