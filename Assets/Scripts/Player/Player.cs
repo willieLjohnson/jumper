@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
   Controller2D controller;
   AttackController attackController;
+  Destructable destructable;
 
   Vector2 directionalInput;
   bool wallSliding;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
   {
     controller = GetComponent<Controller2D>();
     attackController = GetComponent<AttackController>();
+    destructable = GetComponent<Destructable>();
 
     gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -54,14 +56,17 @@ public class Player : MonoBehaviour
     HandleWallSliding();
 
     controller.Move(velocity * Time.deltaTime, directionalInput);
-    if (directionalInput.x != 0 && controller.collisions.below) {
-      if (!audioSource.isPlaying)
+    if (directionalInput.x != 0 && controller.collisions.below)
+    {
+      if (!LevelManager.Instance.audioSource.isPlaying)
       {
-        audioSource.clip = walkClip;
-        audioSource.pitch = Random.Range(0.5f, 1.3f);
-        audioSource.Play();
-      } else {
-        audioSource.pitch = 1f;
+        LevelManager.Instance.audioSource.clip = walkClip;
+        LevelManager.Instance.audioSource.pitch = Random.Range(0.5f, 1.3f);
+        LevelManager.Instance.audioSource.Play();
+      }
+      else
+      {
+        LevelManager.Instance.audioSource.pitch = 1f;
       }
     }
 
@@ -76,6 +81,11 @@ public class Player : MonoBehaviour
         velocity.y = 0;
       }
     }
+
+    if (destructable.isDead)
+    {
+      // LevelManager
+    }
   }
 
   public void SetDirectionalInput(Vector2 input)
@@ -87,7 +97,7 @@ public class Player : MonoBehaviour
   {
     if (wallSliding)
     {
-      audioSource.PlayOneShot(jumpClip);
+      LevelManager.Instance.audioSource.PlayOneShot(jumpClip);
       if (wallDirX == directionalInput.x)
       {
         velocity.x = -wallDirX * wallJumpClimb.x;
@@ -106,8 +116,8 @@ public class Player : MonoBehaviour
     }
     if (controller.collisions.below)
     {
-      audioSource.pitch = Random.Range(0.7f, 1.5f);
-      audioSource.PlayOneShot(jumpClip);
+      LevelManager.Instance.audioSource.pitch = Random.Range(0.7f, 1.5f);
+      LevelManager.Instance.audioSource.PlayOneShot(jumpClip);
       if (controller.collisions.slidingDownMaxSlope)
       {
         if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
@@ -120,8 +130,10 @@ public class Player : MonoBehaviour
       {
         velocity.y = maxJumpVelocity;
       }
-    } else {
-      audioSource.pitch = 1f;
+    }
+    else
+    {
+      LevelManager.Instance.audioSource.pitch = 1f;
     }
   }
 
@@ -137,7 +149,7 @@ public class Player : MonoBehaviour
   {
     Vector3 attackPoint = mousePos - transform.position;
     attackController.Attack(ref velocity, attackPoint, controller.collisions.below);
-    audioSource.PlayOneShot(attackClip);
+    LevelManager.Instance.audioSource.PlayOneShot(attackClip);
   }
 
 

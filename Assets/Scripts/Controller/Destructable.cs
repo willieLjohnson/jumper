@@ -6,7 +6,6 @@ public class Destructable : MonoBehaviour
 {
   private int health = 100;
 
-  public AudioSource audioSource;
   public AudioClip deathClip;
   public AudioClip damagedClip;
 
@@ -24,12 +23,12 @@ public class Destructable : MonoBehaviour
   public void Damage(int amount)
   {
     health -= amount;
-    audioSource.PlayOneShot(damagedClip);
+    LevelManager.Instance.audioSource.PlayOneShot(damagedClip);
   }
 
   private void Die()
   {
-    audioSource.PlayOneShot(deathClip);
+    LevelManager.Instance.audioSource.PlayOneShot(deathClip);
     Destroy(gameObject);
   }
 }
