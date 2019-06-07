@@ -196,6 +196,6 @@ MonoBehaviour:
   collider: {fileID: 0}
   damage: 110
   pushForce: {x: 1, y: 0.5}
-  range: 2
+  range: 1
   attackDuration: 0.05
-  attackDelay: 1
+  attackDelay: 1.5
