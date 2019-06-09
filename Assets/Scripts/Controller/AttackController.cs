@@ -12,6 +12,8 @@ public class AttackController : RaycastController
 
   public float attackDelay = 0;
 
+  public ParticleSystem attackParticles;
+
   public AttackInfo attack;
   float timeToFinishAttacking;
   float timeToNextAttack;
@@ -69,6 +71,12 @@ public class AttackController : RaycastController
 
     moveAmount = new Vector2(moveAmount.x + pushForceX, moveAmount.y + pushForceY);
     attack.moveAmount = moveAmount;
+
+    if (attackParticles)
+    {
+      ParticleSystem attackPS = Instantiate(attackParticles, transform.position + moveAmount, Quaternion.identity);
+      GameObject.Destroy(attackPS.gameObject, attackPS.main.duration);
+    }
   }
 
   public void HorizontalAttack()

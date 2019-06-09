@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
   public AudioSource audioSource;
   public AudioClip jumpClip;
   public AudioClip attackClip;
-  public AudioClip hitClip;
   public AudioClip walkClip;
 
   void Start()
@@ -80,11 +79,6 @@ public class Player : MonoBehaviour
       {
         velocity.y = 0;
       }
-    }
-
-    if (destructable.isDead)
-    {
-      // LevelManager
     }
   }
 
