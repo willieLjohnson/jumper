@@ -74,7 +74,7 @@ public class AttackController : RaycastController
 
     if (attackParticles)
     {
-      ParticleSystem attackPS = Instantiate(attackParticles, transform.position + moveAmount, Quaternion.identity);
+      ParticleSystem attackPS = Instantiate(attackParticles, transform.position, Quaternion.identity);
       GameObject.Destroy(attackPS.gameObject, attackPS.main.duration);
     }
   }

@@ -80,6 +80,13 @@ public class Player : MonoBehaviour
         velocity.y = 0;
       }
     }
+
+    Vector3 scale = transform.localScale;
+    scale.x = controller.collisions.faceDir;
+    transform.localScale = scale;
+
+    // Flip collider over the x-axis
+    //center.x = -center.x;
   }
 
   public void SetDirectionalInput(Vector2 input)
