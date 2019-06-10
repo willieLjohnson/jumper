@@ -58,9 +58,11 @@ public class AttackController : RaycastController
     }
   }
 
-  public void Attack(ref Vector3 moveAmount, Vector2 direction, bool isStanding)
+  public void Attack(ref Vector3 moveAmount, Vector2 direction, bool isStanding, Vector3 targetPoint)
   {
     direction = direction.normalized;
+
+    Vector3 distanceToTarget = targetPoint - transform.position;
 
     attack.horizontal = direction.x != 0;
     attack.vertical = direction.y != 0;
@@ -78,29 +80,31 @@ public class AttackController : RaycastController
       ParticleSystem attackPS = Instantiate(forceParticles, transform.position, Quaternion.identity);
       GameObject.Destroy(attackPS.gameObject, attackPS.main.duration);
 
-      // GameObject attackSP = Instantiate(attackSprite, transform.position, Quaternion.identity);
-      // // attackSP.transform.LookAt(direction);
-      // attackSP.transform.parent = transform;
+      GameObject attackSP = Instantiate(attackSprite, transform.position, Quaternion.identity);
+      attackSP.transform.parent = transform;
 
-      // attackSP.transform.position += Vector3.right * (attackSprite.transform.localScale.x / 2) * direction.x;
-      // attackSP.transform.position -= Vector3.down * (attackSprite.transform.localScale.y / 2) * direction.y;
-      // if (direction.x < 0)
-      // {
-      //   attackSP.GetComponent<SpriteRenderer>().flipX = true;
-      // }
+      attackSP.transform.position += Vector3.right * (attackSprite.transform.localScale.x / 2) * direction.x;
+      attackSP.transform.position -= Vector3.down * (attackSprite.transform.localScale.y / 2) * direction.y;
 
-      // if (direction.y < 0)
-      // {
-      //   attackSP.GetComponent<SpriteRenderer>().flipY = true;
-      //   attackSP.transform.Rotate(0, 0, -90);
-      // }
-      // else
-      // {
-      //   attackSP.transform.Rotate(0, 0, 90);
-      // }
+      attackSP.transform.LookAt(targetPoint);
+
+      if (distanceToTarget.x > 1)
+      {
+        attackSP.GetComponent<SpriteRenderer>().flipX = true;
+      }
+
+      if (distanceToTarget.y > 1)
+      {
+        attackSP.GetComponent<SpriteRenderer>().flipY = true;
+        attackSP.transform.Rotate(0, 0, -90);
+      }
+      else
+      {
+        attackSP.transform.Rotate(0, 0, 90);
+      }
 
 
-      // GameObject.Destroy(attackSP, attackPS.main.duration);
+      GameObject.Destroy(attackSP, attackPS.main.duration);
     }
   }
 

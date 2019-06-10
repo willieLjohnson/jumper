@@ -147,8 +147,8 @@ public class Player : MonoBehaviour
 
   public void OnAttackButtonDown(Vector3 mousePos)
   {
-    Vector3 attackPoint = mousePos - transform.position;
-    attackController.Attack(ref velocity, attackPoint, controller.collisions.below);
+    Vector3 attackDirection = mousePos - transform.position;
+    attackController.Attack(ref velocity, attackDirection, controller.collisions.below, mousePos);
     LevelManager.Instance.audioSource.PlayOneShot(attackClip);
   }
 

@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
         if (distance.x < 4f && distance.y < 4f)
         {
           // Swap the position of the cylinder.
-          attackController.Attack(ref velocity, distance.normalized, controller.collisions.below);
+          attackController.Attack(ref velocity, distance.normalized, controller.collisions.below, target.position);
         }
       }
     }

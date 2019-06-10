@@ -153,7 +153,6 @@ MonoBehaviour:
   wallLeap: {x: 25, y: 19}
   wallSlideSpeedMax: 3
   wallStickTime: 0.35
-  audioSource: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: c9edc7623da4532419c47ada0d811af1, type: 3}
   attackClip: {fileID: 8300000, guid: c6820d2d5d8e7d14e9ea8db8a63412d8, type: 3}
   walkClip: {fileID: 8300000, guid: 4eb1bed4809634c41b6a6b533e7466ed, type: 3}
@@ -194,7 +193,8 @@ MonoBehaviour:
   range: 2
   attackDuration: 0.05
   attackDelay: 0
-  attackParticles: {fileID: 0}
+  forceParticles: {fileID: 0}
+  attackSprite: {fileID: 0}
 --- !u!114 &-7528865229055209025
 MonoBehaviour:
   m_ObjectHideFlags: 0
