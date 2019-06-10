@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class LevelManager : MonoBehaviour
   private bool levelTransitioning = false;
   private bool newLevel = false;
 
+  Text enemiesLeftText;
   Transform enemies;
   GameObject player;
 
@@ -41,6 +43,7 @@ public class LevelManager : MonoBehaviour
   private void SetupLevel()
   {
     enemies = GameObject.Find("Enemies").transform;
+    enemiesLeftText = GameObject.Find("Enemies Left").GetComponent<Text>();
     player = GameObject.FindGameObjectWithTag("Player");
 
     levelTransitioning = false;
@@ -60,6 +63,9 @@ public class LevelManager : MonoBehaviour
       SetupLevel();
       return;
     }
+
+
+    enemiesLeftText.text = enemies.childCount.ToString();
 
     if (enemies.childCount == 0 && !levelTransitioning)
     {
