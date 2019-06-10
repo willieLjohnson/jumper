@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
   bool wallSliding;
   int wallDirX;
 
-  public AudioSource audioSource;
   public AudioClip jumpClip;
   public AudioClip attackClip;
   public AudioClip walkClip;

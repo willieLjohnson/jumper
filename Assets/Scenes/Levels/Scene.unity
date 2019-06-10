@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 1089093033}
   - component: {fileID: 1089093032}
   m_Layer: 0
-  m_Name: Attack Particles
+  m_Name: Force Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,7 +531,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.0627451}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.019607844}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 1}
@@ -5184,6 +5184,61 @@ PrefabInstance:
     - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: attackParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 6593225150425795116, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 5475978108971025703, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 7950332335670803782, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 2210809374457745495, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 2139623625696420857, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 1305549786662312047, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 1550571237835155356, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 827084247511712150, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 267696708352504892, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
+      value: 
+      objectReference: {fileID: 1089093033}
+    - target: {fileID: 3365457368116837924, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: forceParticles
       value: 
       objectReference: {fileID: 1089093033}
     m_RemovedComponents: []
