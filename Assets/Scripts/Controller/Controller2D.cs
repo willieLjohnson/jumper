@@ -121,20 +121,32 @@ public class Controller2D : RaycastController
       }
     }
 
-    if (otherCollider != null && otherCollider.gameObject != this.gameObject && otherCollider.tag == "Pushable")
+    if (otherCollider != null && otherCollider.gameObject != this.gameObject)
     {
-      Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(originalMoveAmountX, 0));
-      //print (moveAmount.y);
-      moveAmount = new Vector2(pushAmount.x, moveAmount.y + pushAmount.y);
-      collisions.left = false;
-      collisions.right = false;
+      if (otherCollider.tag == "Pushable")
+      {
+        Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(originalMoveAmountX, 0));
+        //print (moveAmount.y);
+        moveAmount = new Vector2(pushAmount.x, moveAmount.y + pushAmount.y);
+        collisions.left = false;
+        collisions.right = false;
+      }
+
+      if (otherCollider.tag == "Fall Line")
+      {
+        gameObject.GetComponent<Destructable>().isDead = true;
+      }
+
     }
+
+
   }
 
   void VerticalCollisions(ref Vector2 moveAmount)
   {
     float directionY = Mathf.Sign(moveAmount.y);
     float rayLength = (Mathf.Abs(moveAmount.y) + skinWidth) * 2;
+    Collider2D otherCollider = null;
 
     for (int i = 0; i < verticalRayCount; i++)
     {
@@ -147,7 +159,9 @@ public class Controller2D : RaycastController
 
       if (hit)
       {
-        if (hit.collider.tag == "Through")
+        otherCollider = hit.collider;
+
+        if (otherCollider.tag == "Through")
         {
           if (directionY == 1 || hit.distance == 0)
           {
@@ -163,6 +177,11 @@ public class Controller2D : RaycastController
             Invoke("ResetFallingThroughPlatform", .5f);
             continue;
           }
+        }
+
+        if (otherCollider.tag == "Fall Line")
+        {
+          gameObject.GetComponent<Destructable>().isDead = true;
         }
 
         moveAmount.y = (hit.distance - skinWidth) * directionY;

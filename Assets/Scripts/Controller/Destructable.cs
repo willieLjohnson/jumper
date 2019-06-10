@@ -10,10 +10,11 @@ public class Destructable : MonoBehaviour
   public AudioClip damagedClip;
 
   public bool isDead = false;
+
   // Update is called once per frame
   void Update()
   {
-    if (health <= 0)
+    if (health <= 0 || isDead)
     {
       isDead = true;
       Invoke("Die", 0.25f);
