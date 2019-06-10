@@ -189,8 +189,8 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
-  damage: 50
-  pushForce: {x: 20, y: 15}
+  damage: 35
+  pushForce: {x: 15, y: 10}
   range: 2
   attackDuration: 0.05
   attackDelay: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathClip: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
-  damagedClip: {fileID: 8300000, guid: c6820d2d5d8e7d14e9ea8db8a63412d8, type: 3}
+  damagedClip: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
   isDead: 0
 --- !u!1 &6241089458171938136
 GameObject:
