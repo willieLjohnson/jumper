@@ -405,7 +405,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 0.5254902}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 1}
@@ -4975,6 +4975,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &574435039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
+    type: 3}
+  m_PrefabInstance: {fileID: 54805422778325757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &584929682 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 54805423352105839, guid: becdb68940fd01f459fce6dbbbbf265d,
@@ -5388,7 +5394,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 6593225150425795116, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5408,7 +5414,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 5475978108971025703, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5428,7 +5434,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 7950332335670803782, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5448,7 +5454,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 2210809374457745495, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5468,7 +5474,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 2139623625696420857, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5488,7 +5494,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 1305549786662312047, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5508,7 +5514,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 1550571237835155356, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5528,7 +5534,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 827084247511712150, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5548,7 +5554,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 267696708352504892, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5568,7 +5574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1454806411}
+      objectReference: {fileID: 574435039}
     - target: {fileID: 3365457368116837924, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles

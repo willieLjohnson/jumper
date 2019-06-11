@@ -63,8 +63,9 @@ public class Enemy : MonoBehaviour
           Debug.Log("Jump");
         }
 
+
         // Check if the position of the cube and sphere are approximately equal.
-        if (distance.x < 4f && distance.y < 4f)
+        if (distance.x < attackController.range && distance.y < attackController.range)
         {
           // Swap the position of the cylinder.
           attackController.Attack(ref velocity, distance, controller.collisions.below, target.position);

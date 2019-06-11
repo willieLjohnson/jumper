@@ -31,8 +31,12 @@ public class Destructable : MonoBehaviour
 
   private void Die()
   {
-    ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
-    Destroy(deathPS, deathPS.duration);
+    if (deathParticles)
+    {
+      ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
+      Destroy(deathPS, deathPS.duration);
+    }
+
     LevelManager.Instance.audioSource.PlayOneShot(deathClip);
     Destroy(gameObject);
   }
