@@ -13,7 +13,7 @@ public class AttackController : RaycastController
   public float attackDelay = 0;
 
   public ParticleSystem forceParticles;
-  public GameObject attackSprite;
+  public GameObject attackPivot;
 
   public AttackInfo attack;
   float timeToFinishAttacking;
@@ -78,29 +78,11 @@ public class AttackController : RaycastController
       ParticleSystem attackPS = Instantiate(forceParticles, transform.position, Quaternion.identity);
       GameObject.Destroy(attackPS.gameObject, attackPS.main.duration);
 
-      GameObject attackSP = Instantiate(attackSprite, transform.position, Quaternion.identity);
+      GameObject attackSP = Instantiate(attackPivot, transform.position, Quaternion.identity);
       attackSP.transform.parent = transform;
 
-      attackSP.transform.position += Vector3.right * (attackSprite.transform.localScale.x / 2) * direction.x;
-      attackSP.transform.position -= Vector3.down * (attackSprite.transform.localScale.y / 2) * direction.y;
-
-      attackSP.transform.LookAt(targetPoint);
-
-      if (direction.x > 0.3f)
-      {
-        attackSP.GetComponent<SpriteRenderer>().flipX = true;
-      }
-
-      if (direction.y > 0.3f)
-      {
-        //attackSP.GetComponent<SpriteRenderer>().flipY = true;
-        attackSP.transform.Rotate(0, 0, -90);
-      }
-      else if (direction.y < -0.3f)
-      {
-        attackSP.transform.Rotate(0, 0, 90);
-      }
-
+      float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+      attackSP.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
       GameObject.Destroy(attackSP, attackPS.main.duration);
     }

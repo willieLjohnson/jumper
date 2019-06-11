@@ -4999,6 +4999,37 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 4017217976665994174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1454806410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454806411}
+  m_Layer: 0
+  m_Name: Attack Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1454806411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454806410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1873381503}
+  m_Father: {fileID: 1559754701}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1559754701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3589157880254116219, guid: a973d7d55d8d9e7449293c2273c19f8e,
@@ -5029,12 +5060,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873381502}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.118, y: 1.958, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
-  m_Father: {fileID: 1559754701}
-  m_RootOrder: 1
+  m_Father: {fileID: 1454806411}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1873381504
 SpriteRenderer:
@@ -5342,12 +5373,22 @@ PrefabInstance:
         type: 3}
       propertyPath: attackSprite
       value: 
-      objectReference: {fileID: 1873381502}
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
     - target: {fileID: 54805421712875935, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8406140834975973130, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 6593225150425795116, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5358,6 +5399,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 6593225150425795116, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 7217544834735697921, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 5475978108971025703, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5368,6 +5419,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 5475978108971025703, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 4720347420747974752, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 7950332335670803782, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5378,6 +5439,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 7950332335670803782, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 3564903340703786353, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 2210809374457745495, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5388,6 +5459,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 2210809374457745495, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 3631646788148254431, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 2139623625696420857, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5398,6 +5479,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 2139623625696420857, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 4452218658217848137, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 1305549786662312047, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5408,6 +5499,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 1305549786662312047, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 4202975047497994938, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 1550571237835155356, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5418,6 +5519,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 1550571237835155356, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 2642820677704955056, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 827084247511712150, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5428,6 +5539,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 827084247511712150, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 3197634239634637082, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 267696708352504892, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5438,6 +5559,16 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 267696708352504892, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
+    - target: {fileID: 100146267614333698, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1454806411}
     - target: {fileID: 3365457368116837924, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: forceParticles
@@ -5448,6 +5579,11 @@ PrefabInstance:
       propertyPath: attackSprite
       value: 
       objectReference: {fileID: 1873381502}
+    - target: {fileID: 3365457368116837924, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 1454806410}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becdb68940fd01f459fce6dbbbbf265d, type: 3}
 --- !u!1001 &330316666139615301
