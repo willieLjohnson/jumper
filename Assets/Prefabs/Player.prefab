@@ -188,13 +188,13 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
-  damage: 35
+  damage: 50
   pushForce: {x: 15, y: 10}
   range: 2
   attackDuration: 0.05
   attackDelay: 0
   forceParticles: {fileID: 0}
-  attackSprite: {fileID: 0}
+  attackPivot: {fileID: 0}
 --- !u!114 &-7528865229055209025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
   damagedClip: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
   isDead: 0
+  deathParticles: {fileID: 0}
 --- !u!1 &6241089458171938136
 GameObject:
   m_ObjectHideFlags: 0
