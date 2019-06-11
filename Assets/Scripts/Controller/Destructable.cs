@@ -11,6 +11,8 @@ public class Destructable : MonoBehaviour
 
   public bool isDead = false;
 
+  public ParticleSystem deathParticles;
+
   // Update is called once per frame
   void Update()
   {
@@ -29,6 +31,8 @@ public class Destructable : MonoBehaviour
 
   private void Die()
   {
+    ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
+    Destroy(deathPS, deathPS.duration);
     LevelManager.Instance.audioSource.PlayOneShot(deathClip);
     Destroy(gameObject);
   }

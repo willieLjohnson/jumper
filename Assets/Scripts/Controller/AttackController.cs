@@ -62,8 +62,6 @@ public class AttackController : RaycastController
   {
     direction = direction.normalized;
 
-    Vector3 distanceToTarget = targetPoint - transform.position;
-
     attack.horizontal = direction.x != 0;
     attack.vertical = direction.y != 0;
     attack.isAttacking = true;
@@ -88,17 +86,17 @@ public class AttackController : RaycastController
 
       attackSP.transform.LookAt(targetPoint);
 
-      if (distanceToTarget.x > 1)
+      if (direction.x > 0.3f)
       {
         attackSP.GetComponent<SpriteRenderer>().flipX = true;
       }
 
-      if (distanceToTarget.y > 1)
+      if (direction.y > 0.3f)
       {
-        attackSP.GetComponent<SpriteRenderer>().flipY = true;
+        //attackSP.GetComponent<SpriteRenderer>().flipY = true;
         attackSP.transform.Rotate(0, 0, -90);
       }
-      else
+      else if (direction.y < -0.3f)
       {
         attackSP.transform.Rotate(0, 0, 90);
       }
