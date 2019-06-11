@@ -81,13 +81,17 @@ public class AttackController : RaycastController
 
     if (attackPivot)
     {
-      GameObject attackSP = Instantiate(attackPivot, transform.position, Quaternion.identity);
-      attackSP.transform.parent = transform;
+      GameObject attackPiv = Instantiate(attackPivot, transform.position, Quaternion.identity);
+      attackPiv.transform.parent = transform;
+
+      SpriteRenderer attackSprite = attackPiv.transform.GetComponentInChildren<SpriteRenderer>();
+      attackSprite.transform.position += Vector3.right * range;
+      attackSprite.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
 
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-      attackSP.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+      attackPiv.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-      GameObject.Destroy(attackSP, attackDuration);
+      GameObject.Destroy(attackPiv, attackDuration);
     }
   }
 
