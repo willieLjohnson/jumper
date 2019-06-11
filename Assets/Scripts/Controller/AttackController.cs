@@ -77,14 +77,17 @@ public class AttackController : RaycastController
     {
       ParticleSystem attackPS = Instantiate(forceParticles, transform.position, Quaternion.identity);
       GameObject.Destroy(attackPS.gameObject, attackPS.main.duration);
+    }
 
+    if (attackPivot)
+    {
       GameObject attackSP = Instantiate(attackPivot, transform.position, Quaternion.identity);
       attackSP.transform.parent = transform;
 
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
       attackSP.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-      GameObject.Destroy(attackSP, attackPS.main.duration);
+      GameObject.Destroy(attackSP, attackDuration);
     }
   }
 
