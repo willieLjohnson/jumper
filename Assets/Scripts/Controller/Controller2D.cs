@@ -137,9 +137,11 @@ public class Controller2D : RaycastController
         gameObject.GetComponent<Destructable>().isDead = true;
       }
 
+      if (otherCollider.tag == "Hazard")
+      {
+        gameObject.GetComponent<Destructable>().isDead = true;
+      }
     }
-
-
   }
 
   void VerticalCollisions(ref Vector2 moveAmount)
@@ -180,6 +182,11 @@ public class Controller2D : RaycastController
         }
 
         if (otherCollider.tag == "Fall Line")
+        {
+          gameObject.GetComponent<Destructable>().isDead = true;
+        }
+
+        if (otherCollider.tag == "Hazard")
         {
           gameObject.GetComponent<Destructable>().isDead = true;
         }

@@ -8,6 +8,7 @@ TagManager:
   - Pushable
   - Fall Line
   - Attack
+  - Hazard
   layers:
   - Default
   - TransparentFX
