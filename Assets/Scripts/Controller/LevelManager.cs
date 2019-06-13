@@ -77,7 +77,8 @@ public class LevelManager : MonoBehaviour
     if (player == null && !levelTransitioning)
     {
       levelTransitioning = true;
-      // audioSource.PlayOneShot(levelUpClip);
+      audioSource.pitch = 0.25f;
+      CameraFollow.Instance.TriggerShake(1f, 1f, 0.2f);
       Invoke("Lose", 1f);
     }
   }
