@@ -21,9 +21,12 @@ public class AttackController : RaycastController
 
   Vector2 moveAmount;
 
+  Controller2D controller;
+
   public override void Start()
   {
     base.Start();
+    controller = GetComponent<Controller2D>();
     range *= collider.bounds.size.x;
   }
 
@@ -86,7 +89,7 @@ public class AttackController : RaycastController
 
       SpriteRenderer attackSprite = attackPiv.transform.GetComponentInChildren<SpriteRenderer>();
       attackSprite.transform.position += Vector3.right * range;
-      attackSprite.transform.localScale = new Vector3(range * 2, range * 2, range * 2);
+      attackSprite.transform.localScale += new Vector3(range, range, range);
 
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
       attackPiv.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
