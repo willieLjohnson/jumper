@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Destructable : MonoBehaviour
 {
-  private int health = 100;
+  public int health = 100;
 
   public AudioClip deathClip;
   public AudioClip damagedClip;
 
   public bool isDead = false;
+  public float deathDuration = 0.25f;
 
   public ParticleSystem deathParticles;
 
@@ -19,7 +20,7 @@ public class Destructable : MonoBehaviour
     if (health <= 0 || isDead)
     {
       isDead = true;
-      Invoke("Die", 0.25f);
+      Invoke("Die", deathDuration);
     }
   }
 
