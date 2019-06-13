@@ -27,7 +27,7 @@ public class Destructable : MonoBehaviour
   {
     health -= amount;
     LevelManager.Instance.audioSource.PlayOneShot(damagedClip);
-    CameraFollow.Instance.TriggerShake(0.05f);
+    CameraFollow.Instance.TriggerShake(0.05f, 0.1f);
   }
 
   private void Die()

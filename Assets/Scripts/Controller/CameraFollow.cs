@@ -24,7 +24,6 @@ public class CameraFollow : MonoBehaviour
   bool lookAheadStopped;
 
   private float shakeTimer = 0f;
-  private float shakeDuration = 0.5f;
   private float shakeMagnitude = 0.2f;
   private float dampingSpeed = 1.0f;
   public bool shaking = false;
@@ -92,10 +91,11 @@ public class CameraFollow : MonoBehaviour
   }
 
   /// Triggers camera shake.
-  public void TriggerShake(float magnitude = 0.2f)
+  public void TriggerShake(float magnitude = 0.2f, float duration = 0.5f, float damp = 1.0f)
   {
-    shakeTimer = shakeDuration;
+    shakeTimer = duration;
     shakeMagnitude = magnitude;
+    dampingSpeed = damp;
     shaking = true;
   }
 
