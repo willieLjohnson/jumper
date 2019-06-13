@@ -150,7 +150,6 @@ public class Player : MonoBehaviour
     Vector3 attackDirection = mousePos - transform.position;
     attackController.Attack(ref velocity, attackDirection, controller.collisions.below, mousePos);
     LevelManager.Instance.audioSource.PlayOneShot(attackClip);
-    Camera.main.GetComponent<CameraFollow>().TriggerShake();
   }
 
 

@@ -27,6 +27,7 @@ public class Destructable : MonoBehaviour
   {
     health -= amount;
     LevelManager.Instance.audioSource.PlayOneShot(damagedClip);
+    CameraFollow.Instance.TriggerShake(0.05f);
   }
 
   private void Die()
@@ -36,7 +37,7 @@ public class Destructable : MonoBehaviour
       ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
       Destroy(deathPS, deathPS.duration);
     }
-
+    CameraFollow.Instance.TriggerShake();
     LevelManager.Instance.audioSource.PlayOneShot(deathClip);
     Destroy(gameObject);
   }

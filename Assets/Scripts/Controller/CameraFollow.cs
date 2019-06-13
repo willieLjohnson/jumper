@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
+  public static CameraFollow Instance { get; private set; }
 
   public Controller2D target;
   public float verticalOffset;
@@ -27,7 +28,12 @@ public class CameraFollow : MonoBehaviour
   private float shakeMagnitude = 0.2f;
   private float dampingSpeed = 1.0f;
   public bool shaking = false;
-  Vector3 initialPosition;
+
+
+  void Awake()
+  {
+    Instance = this;
+  }
 
   void Start()
   {
@@ -86,9 +92,10 @@ public class CameraFollow : MonoBehaviour
   }
 
   /// Triggers camera shake.
-  public void TriggerShake()
+  public void TriggerShake(float magnitude = 0.2f)
   {
     shakeTimer = shakeDuration;
+    shakeMagnitude = magnitude;
     shaking = true;
   }
 
