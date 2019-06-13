@@ -118,9 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   deathClip: {fileID: 0}
   damagedClip: {fileID: 0}
   isDead: 0
+  deathDuration: 0
   deathParticles: {fileID: 0}
 --- !u!1 &2495847738183375637
 GameObject:
@@ -240,9 +242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   deathClip: {fileID: 0}
   damagedClip: {fileID: 0}
   isDead: 0
+  deathDuration: 0
   deathParticles: {fileID: 0}
 --- !u!1 &2495847738216027683
 GameObject:
@@ -395,7 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   deathClip: {fileID: 0}
   damagedClip: {fileID: 0}
   isDead: 0
+  deathDuration: 0
   deathParticles: {fileID: 0}
