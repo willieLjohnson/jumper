@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour
   public Vector2 focusAreaSize;
 
   FocusArea focusArea;
+  Vector2 focusPosition;
 
   float currentLookAheadX;
   float targetLookAheadX;
@@ -21,6 +22,13 @@ public class CameraFollow : MonoBehaviour
 
   bool lookAheadStopped;
 
+  private float shakeTimer = 0f;
+  private float shakeDuration = 0.5f;
+  private float shakeMagnitude = 0.2f;
+  private float dampingSpeed = 1.0f;
+  public bool shaking = false;
+  Vector3 initialPosition;
+
   void Start()
   {
     focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
@@ -28,11 +36,14 @@ public class CameraFollow : MonoBehaviour
 
   void LateUpdate()
   {
+    if (shaking)
+      UpdateCameraShake();
+
     if (target == null) return;
 
     focusArea.Update(target.collider.bounds);
 
-    Vector2 focusPosition = focusArea.centre + Vector2.up * verticalOffset;
+    focusPosition = focusArea.centre + Vector2.up * verticalOffset;
 
     if (focusArea.velocity.x != 0)
     {
@@ -52,12 +63,33 @@ public class CameraFollow : MonoBehaviour
       }
     }
 
-
     currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, targetLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
 
     focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
     focusPosition += Vector2.right * currentLookAheadX;
     transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+  }
+
+  /// Shakes camera by moving it around randomly during shake timer.
+  private void UpdateCameraShake()
+  {
+    if (shakeTimer > 0)
+    {
+      transform.localPosition = focusPosition + (Vector2)Random.insideUnitSphere * shakeMagnitude;
+      shakeTimer -= Time.deltaTime * dampingSpeed;
+    }
+    else
+    {
+      shakeTimer = 0f;
+      shaking = false;
+    }
+  }
+
+  /// Triggers camera shake.
+  public void TriggerShake()
+  {
+    shakeTimer = shakeDuration;
+    shaking = true;
   }
 
   void OnDrawGizmos()
