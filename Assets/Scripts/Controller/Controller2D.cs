@@ -157,7 +157,7 @@ public class Controller2D : RaycastController
         Destructable otherDestructable = otherCollider.gameObject.GetComponent<Destructable>();
         otherDestructable.value += 1;
         gameObject.GetComponent<Collectible>().Collect();
-        Debug.Log("OOO GOLD! I now have: " + otherDestructable.value);
+
       }
     }
   }
@@ -232,7 +232,6 @@ public class Controller2D : RaycastController
           Destructable otherDestructable = otherCollider.gameObject.GetComponent<Destructable>();
           otherDestructable.value += 1;
           gameObject.GetComponent<Collectible>().Collect();
-          Debug.Log("OOO GOLD! I now have: " + otherDestructable.value);
         }
       }
     }
