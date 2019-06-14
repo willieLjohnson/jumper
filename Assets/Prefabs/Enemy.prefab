@@ -125,6 +125,8 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 768
+  skinWidth: 0.015
+  dstBetweenRays: 0.25
   horizontalRayCount: 4
   verticalRayCount: 4
   horizontalRaySpacing: 0
@@ -157,9 +159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  value: 1
   deathClip: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
   damagedClip: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
   isDead: 0
+  deathDuration: 0.25
+  deathParticles: {fileID: 0}
 --- !u!114 &8777413987290980043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +194,8 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 768
+  skinWidth: 0.015
+  dstBetweenRays: 0.25
   horizontalRayCount: 0
   verticalRayCount: 0
   horizontalRaySpacing: 0
@@ -199,4 +207,4 @@ MonoBehaviour:
   attackDuration: 0.05
   attackDelay: 1.5
   forceParticles: {fileID: 0}
-  attackSprite: {fileID: 0}
+  attackPivot: {fileID: 0}

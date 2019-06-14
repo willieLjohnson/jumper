@@ -889,6 +889,11 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 6344004893088368769, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: value
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: attackParticles
@@ -1269,6 +1274,11 @@ PrefabInstance:
       propertyPath: attackPivot
       value: 
       objectReference: {fileID: 1454806410}
+    - target: {fileID: 6344004893088368796, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becdb68940fd01f459fce6dbbbbf265d, type: 3}
 --- !u!1001 &330316666139615301

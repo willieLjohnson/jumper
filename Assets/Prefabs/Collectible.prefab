@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8103520688160494678}
   - component: {fileID: 8103520688160494679}
   - component: {fileID: 8103520688160494676}
-  - component: {fileID: 8103520688160494677}
   - component: {fileID: -3640289039373470179}
   m_Layer: 11
   m_Name: Collectible
@@ -123,6 +122,8 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1792
+  skinWidth: 0.015
+  dstBetweenRays: 0.25
   horizontalRayCount: 4
   verticalRayCount: 4
   horizontalRaySpacing: 0
@@ -130,24 +131,6 @@ MonoBehaviour:
   collider: {fileID: 0}
   maxSlopeAngle: 55
   playerInput: {x: 0, y: 0}
---- !u!114 &8103520688160494677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103520688160494675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  deathClip: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
-  damagedClip: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
-  isDead: 0
-  deathDuration: 0.25
-  deathParticles: {fileID: 0}
 --- !u!114 &-3640289039373470179
 MonoBehaviour:
   m_ObjectHideFlags: 0

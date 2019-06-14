@@ -5,6 +5,7 @@ using UnityEngine;
 public class Destructable : MonoBehaviour
 {
   public int health = 100;
+  public int value = 0;
 
   public AudioClip deathClip;
   public AudioClip damagedClip;
@@ -13,6 +14,12 @@ public class Destructable : MonoBehaviour
   public float deathDuration = 0.25f;
 
   public ParticleSystem deathParticles;
+
+  void Awake()
+  {
+    value *= (int)(Mathf.Abs(Random.insideUnitSphere.x) * 10);
+    Debug.Log(value);
+  }
 
   // Update is called once per frame
   void Update()
@@ -38,8 +45,16 @@ public class Destructable : MonoBehaviour
       ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
       Destroy(deathPS, deathPS.duration);
     }
+
+    GameObject collectible = GameObject.FindWithTag("Collectible");
     CameraFollow.Instance.TriggerShake();
     LevelManager.Instance.audioSource.PlayOneShot(deathClip);
+
+    for (var i = 0; i < value; i++)
+    {
+      Instantiate(collectible, transform.position, Quaternion.identity);
+    }
+
     Destroy(gameObject);
   }
 }
