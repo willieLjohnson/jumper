@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
-  public static Player Instance;
+  public static Player Instance { get; private set; }
   public float maxJumpHeight = 4;
   public float minJumpHeight = 1;
   public float timeToJumpApex = .4f;
@@ -192,9 +192,7 @@ public class Player : MonoBehaviour
       {
         timeToWallUnstick = wallStickTime;
       }
-
     }
-
   }
 
   void CalculateVelocity()

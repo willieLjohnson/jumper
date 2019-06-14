@@ -7,19 +7,26 @@ public class Destructable : MonoBehaviour
   public int health = 100;
   public int value = 0;
 
-  public AudioClip deathClip;
-  public AudioClip damagedClip;
-
   public bool isDead = false;
   public float deathDuration = 0.25f;
 
   public ParticleSystem deathParticles;
 
+  public AudioClip damageAudio;
+  public AudioClip deathAudio;
+
+  AudioSource audioSource;
+
   void Awake()
   {
     // value of 0 means it won't start of with a random value.
     value *= (int)(Mathf.Abs(Random.insideUnitSphere.x) * 10);
-    Debug.Log(value);
+  }
+
+  void Start()
+  {
+    audioSource = gameObject.GetComponent<AudioSource>();
+    Debug.Log("Tag: " + tag + " Source: " + audioSource);
   }
 
   // Update is called once per frame
@@ -35,17 +42,12 @@ public class Destructable : MonoBehaviour
   public void Damage(int amount)
   {
     health -= amount;
-    LevelManager.Instance.audioSource.PlayOneShot(damagedClip);
+    audioSource.PlayOneShot(damageAudio);
     CameraFollow.Instance.TriggerShake(0.05f, 0.05f);
   }
 
   private void Die()
   {
-    if (gameObject.tag == "Player")
-    {
-      Debug.Log("Player is dead! " + value);
-    }
-
     if (deathParticles)
     {
       ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
@@ -54,7 +56,15 @@ public class Destructable : MonoBehaviour
 
     GameObject collectible = GameObject.FindWithTag("Collectible");
     CameraFollow.Instance.TriggerShake();
-    LevelManager.Instance.audioSource.PlayOneShot(deathClip);
+
+    GameObject carcass = new GameObject();
+    audioSource = carcass.AddComponent<AudioSource>();
+    if (gameObject.tag == "Player")
+    {
+      audioSource.pitch = 0.25f;
+    }
+    audioSource.PlayOneShot(deathAudio);
+    Destroy(carcass, 1f);
 
     for (var i = 0; i < value; i++)
     {

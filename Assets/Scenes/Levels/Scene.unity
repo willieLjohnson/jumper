@@ -143,7 +143,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -754,6 +754,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 54805423214442129, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 54805423214442129, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 54805422165389138, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -801,14 +811,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4745210714312835593, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4745210714312835593, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 1965131729}
+    - target: {fileID: 4745210714312835593, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
     - target: {fileID: 5047438090928398148, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -819,6 +829,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 5047438090928398148, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 5047438090928398148, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 3884393473046905339, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -829,6 +849,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 3884393473046905339, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 3884393473046905339, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 5636780745681869601, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -839,6 +869,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 5636780745681869601, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 5636780745681869601, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 8433522256573366937, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -849,6 +889,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 8433522256573366937, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 8433522256573366937, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 4977389099885489386, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -859,6 +909,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 4977389099885489386, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 4977389099885489386, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 5820628567200562475, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -869,6 +929,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 5820628567200562475, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 5820628567200562475, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 5306187003369563346, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -879,6 +949,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 5306187003369563346, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 5306187003369563346, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 1172052430569060762, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -889,6 +969,16 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 327089784}
+    - target: {fileID: 1172052430569060762, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 1172052430569060762, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 6344004893088368769, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -904,6 +994,16 @@ PrefabInstance:
       propertyPath: value
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6344004893088368769, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: damageAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+    - target: {fileID: 6344004893088368769, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
     - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: attackParticles
@@ -1293,6 +1393,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629729035857726379, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65799916621249260, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becdb68940fd01f459fce6dbbbbf265d, type: 3}

@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
   {
     enemies = GameObject.Find("Enemies").transform;
     enemiesLeftText = GameObject.Find("Enemies Left").GetComponent<Text>();
-    player = GameObject.FindGameObjectWithTag("Player");
+    player = Player.Instance.gameObject;
 
     levelTransitioning = false;
     newLevel = false;
@@ -77,7 +77,6 @@ public class LevelManager : MonoBehaviour
     if (player == null && !levelTransitioning)
     {
       levelTransitioning = true;
-      audioSource.pitch = 0.25f;
       CameraFollow.Instance.TriggerShake(1f, 1f, 0.2f);
       Invoke("Lose", 1f);
     }

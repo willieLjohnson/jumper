@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 6241089458075834590}
   - component: {fileID: 6241089458075834591}
   - component: {fileID: 6241089458075834584}
+  - component: {fileID: 6248670105666120026}
   - component: {fileID: 6241089458075834585}
+  - component: {fileID: -7528865229055209025}
   - component: {fileID: 6241089458075834586}
   - component: {fileID: 6241089458075834588}
   - component: {fileID: 6241089458075834579}
-  - component: {fileID: -7528865229055209025}
-  - component: {fileID: -4556643254206867427}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -112,114 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6241089458075834585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241089458075834587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21ae0c3d7722a4bc0b743f08432e661a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 1536
-  skinWidth: 0.015
-  dstBetweenRays: 0.25
-  horizontalRayCount: 4
-  verticalRayCount: 4
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
-  maxSlopeAngle: 55
-  playerInput: {x: 0, y: 0}
---- !u!114 &6241089458075834586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241089458075834587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d4b25ed59774c2dab59a88f8ad8428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxJumpHeight: 5
-  minJumpHeight: 1
-  timeToJumpApex: 0.4
-  wallJumpClimb: {x: 5.5, y: 20}
-  wallJumpOff: {x: 8.5, y: 7}
-  wallLeap: {x: 25, y: 19}
-  wallSlideSpeedMax: 3
-  wallStickTime: 0.35
-  jumpClip: {fileID: 8300000, guid: c9edc7623da4532419c47ada0d811af1, type: 3}
-  attackClip: {fileID: 8300000, guid: c6820d2d5d8e7d14e9ea8db8a63412d8, type: 3}
-  walkClip: {fileID: 8300000, guid: 4eb1bed4809634c41b6a6b533e7466ed, type: 3}
---- !u!114 &6241089458075834588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241089458075834587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81de9558679394d24b9a80bed2b095c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6241089458075834579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241089458075834587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5654f165649d874db6850b5682150d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 1536
-  skinWidth: 0.015
-  dstBetweenRays: 0.25
-  horizontalRayCount: 0
-  verticalRayCount: 0
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
-  damage: 50
-  pushForce: {x: 15, y: 10}
-  range: 2
-  attackDuration: 0.1
-  attackDelay: 0
-  forceParticles: {fileID: 0}
-  attackPivot: {fileID: 0}
---- !u!114 &-7528865229055209025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241089458075834587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  value: 0
-  deathClip: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
-  damagedClip: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
-  isDead: 0
-  deathDuration: 0.25
-  deathParticles: {fileID: 0}
---- !u!82 &-4556643254206867427
+--- !u!82 &6248670105666120026
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,6 +208,113 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6241089458075834585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241089458075834587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ae0c3d7722a4bc0b743f08432e661a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  skinWidth: 0.015
+  dstBetweenRays: 0.25
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  maxSlopeAngle: 55
+  playerInput: {x: 0, y: 0}
+--- !u!114 &-7528865229055209025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241089458075834587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  value: 0
+  isDead: 0
+  deathDuration: 0.25
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+  deathAudio: {fileID: 8300000, guid: 1f3997be9b9399449bc34202e0549274, type: 3}
+--- !u!114 &6241089458075834586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241089458075834587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4b25ed59774c2dab59a88f8ad8428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxJumpHeight: 5
+  minJumpHeight: 1
+  timeToJumpApex: 0.4
+  wallJumpClimb: {x: 5.5, y: 20}
+  wallJumpOff: {x: 8.5, y: 7}
+  wallLeap: {x: 25, y: 19}
+  wallSlideSpeedMax: 3
+  wallStickTime: 0.35
+  jumpClip: {fileID: 8300000, guid: c9edc7623da4532419c47ada0d811af1, type: 3}
+  attackClip: {fileID: 8300000, guid: c6820d2d5d8e7d14e9ea8db8a63412d8, type: 3}
+  walkClip: {fileID: 8300000, guid: 4eb1bed4809634c41b6a6b533e7466ed, type: 3}
+--- !u!114 &6241089458075834588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241089458075834587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81de9558679394d24b9a80bed2b095c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6241089458075834579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241089458075834587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5654f165649d874db6850b5682150d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  skinWidth: 0.015
+  dstBetweenRays: 0.25
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  damage: 50
+  pushForce: {x: 15, y: 10}
+  range: 2
+  attackDuration: 0.1
+  attackDelay: 0
+  forceParticles: {fileID: 0}
+  attackPivot: {fileID: 0}
 --- !u!1 &6241089458171938136
 GameObject:
   m_ObjectHideFlags: 0

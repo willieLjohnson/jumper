@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
 
   Vector3 velocity;
 
-
   float velocityXSmoothing;
 
   void Start()
@@ -62,7 +61,6 @@ public class Enemy : MonoBehaviour
           velocity.y = 15f;
           Debug.Log("Jump");
         }
-
 
         // Check if the position of the cube and sphere are approximately equal.
         if (distance.x < attackController.range && distance.y < attackController.range)
