@@ -91,7 +91,7 @@ public class CameraFollow : MonoBehaviour
   }
 
   /// Triggers camera shake.
-  public void TriggerShake(float magnitude = 0.2f, float duration = 0.5f, float damp = 1.0f)
+  public void TriggerShake(float magnitude = 0.2f, float duration = 0.2f, float damp = 1.0f)
   {
     shakeTimer = duration;
     shakeMagnitude = magnitude;
