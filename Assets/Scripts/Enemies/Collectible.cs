@@ -43,7 +43,7 @@ public class Collectible : MonoBehaviour
 
     if (controller.collisions.below)
     {
-      velocity = Vector3.zero;
+      velocity.y = 0;
     }
   }
 

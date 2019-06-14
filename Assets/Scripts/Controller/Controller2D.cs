@@ -152,11 +152,12 @@ public class Controller2D : RaycastController
         }
       }
 
-      if (this.collider.tag == "Player" && otherCollider.tag == "Collectible")
+      if (this.collider.tag == "Collectible" && otherCollider.tag == "Player")
       {
-        destructable.value += 1;
-        otherCollider.gameObject.GetComponent<Collectible>().Collect();
-        Debug.Log("OOO GOLD! I now have: " + destructable.value);
+        Destructable otherDestructable = otherCollider.gameObject.GetComponent<Destructable>();
+        otherDestructable.value += 1;
+        gameObject.GetComponent<Collectible>().Collect();
+        Debug.Log("OOO GOLD! I now have: " + otherDestructable.value);
       }
     }
   }
@@ -198,6 +199,21 @@ public class Controller2D : RaycastController
           }
         }
 
+        moveAmount.y = (hit.distance - skinWidth) * directionY;
+        rayLength = hit.distance;
+
+        if (collisions.climbingSlope)
+        {
+          moveAmount.x = moveAmount.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(moveAmount.x);
+        }
+
+        collisions.below = directionY == -1;
+        collisions.above = directionY == 1;
+      }
+
+      if (otherCollider != null && otherCollider.gameObject != this.gameObject)
+      {
+
         if (isDestructable)
         {
           if (otherCollider.tag == "Fall Line")
@@ -211,23 +227,13 @@ public class Controller2D : RaycastController
           }
         }
 
-        if (this.collider.tag == "Player" && otherCollider.tag == "Collectible")
+        if (this.collider.tag == "Collectible" && otherCollider.tag == "Player")
         {
-          destructable.value += 1;
-          otherCollider.gameObject.GetComponent<Collectible>().Collect();
-          Debug.Log("OOO GOLD! I now have: " + destructable.value);
+          Destructable otherDestructable = otherCollider.gameObject.GetComponent<Destructable>();
+          otherDestructable.value += 1;
+          gameObject.GetComponent<Collectible>().Collect();
+          Debug.Log("OOO GOLD! I now have: " + otherDestructable.value);
         }
-
-        moveAmount.y = (hit.distance - skinWidth) * directionY;
-        rayLength = hit.distance;
-
-        if (collisions.climbingSlope)
-        {
-          moveAmount.x = moveAmount.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(moveAmount.x);
-        }
-
-        collisions.below = directionY == -1;
-        collisions.above = directionY == 1;
       }
     }
 
