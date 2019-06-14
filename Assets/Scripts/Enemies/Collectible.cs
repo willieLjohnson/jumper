@@ -7,6 +7,7 @@ public class Collectible : MonoBehaviour
 {
   public Transform target;
   public AudioClip collectibleClip;
+  public float audioVolume = 0.7f;
 
   Controller2D controller;
 
@@ -33,7 +34,7 @@ public class Collectible : MonoBehaviour
       target = Player.Instance.transform;
     }
 
-    velocity = Random.insideUnitSphere * moveSpeed;
+    velocity = Random.insideUnitSphere * moveSpeed * 2;
   }
 
   // Update is called once per frame
@@ -69,7 +70,13 @@ public class Collectible : MonoBehaviour
 
   public void Collect()
   {
-    LevelManager.Instance.audioSource.PlayOneShot(collectibleClip);
+    GameObject collected = new GameObject();
+    AudioSource audioSource = collected.AddComponent<AudioSource>();
+    audioSource.volume = audioVolume;
+    audioSource.PlayOneShot(collectibleClip);
+    audioSource.pitch = Random.Range(0.9f, 1f);
+
+    GameObject.Destroy(collected, 1f);
     GameObject.Destroy(gameObject);
   }
 }

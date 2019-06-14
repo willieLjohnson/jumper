@@ -64,7 +64,6 @@ public class LevelManager : MonoBehaviour
       return;
     }
 
-
     enemiesLeftText.text = enemies.childCount.ToString();
 
     if (enemies.childCount == 0 && !levelTransitioning)
