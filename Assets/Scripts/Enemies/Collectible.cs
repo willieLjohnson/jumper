@@ -28,10 +28,11 @@ public class Collectible : MonoBehaviour
   {
     controller = GetComponent<Controller2D>();
 
-    if (target == null)
+    if (target == null && Player.Instance != null)
     {
       target = Player.Instance.transform;
     }
+
     velocity = Random.insideUnitSphere * moveSpeed;
   }
 

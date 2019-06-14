@@ -674,6 +674,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.89
       objectReference: {fileID: 0}
+    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 54805423352105839, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: collisionMask.m_Bits

@@ -41,10 +41,14 @@ public class Destructable : MonoBehaviour
 
   private void Die()
   {
+    if (gameObject.tag == "Player")
+    {
+      Debug.Log("Player is dead! " + value);
+    }
     if (deathParticles)
     {
       ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
-      Destroy(deathPS, deathPS.duration);
+      Destroy(deathPS, deathPS.main.duration);
     }
 
     GameObject collectible = GameObject.FindWithTag("Collectible");
