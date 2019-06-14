@@ -674,6 +674,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.89
       objectReference: {fileID: 0}
+    - target: {fileID: 54805423352105839, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 3584
+      objectReference: {fileID: 0}
     - target: {fileID: 2739473273229594369, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,6 +919,11 @@ PrefabInstance:
       propertyPath: attackPivot
       value: 
       objectReference: {fileID: 1454806410}
+    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 1536
+      objectReference: {fileID: 0}
     - target: {fileID: 54805421712875935, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_IsActive
@@ -1859,12 +1869,12 @@ PrefabInstance:
     - target: {fileID: 8103520688160494664, guid: 7cadde1c46103a94ebe3790c063d35c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1
+      value: -39.2
       objectReference: {fileID: 0}
     - target: {fileID: 8103520688160494664, guid: 7cadde1c46103a94ebe3790c063d35c7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.69
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 8103520688160494664, guid: 7cadde1c46103a94ebe3790c063d35c7,
         type: 3}

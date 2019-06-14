@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  collectibleClip: {fileID: 8300000, guid: 0ea357bf133bbf24d92efd9aa361f82e, type: 3}

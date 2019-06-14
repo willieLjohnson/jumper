@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Controller2D : RaycastController
 {
-
   public float maxSlopeAngle = 80;
 
   public CollisionInfo collisions;
+  Destructable destructable = null;
+  bool isDestructable = false;
   [HideInInspector]
   public Vector2 playerInput;
 
@@ -14,6 +15,12 @@ public class Controller2D : RaycastController
   {
     base.Start();
     collisions.faceDir = 1;
+    destructable = GetComponent<Destructable>();
+
+    if (destructable)
+    {
+      isDestructable = true;
+    }
   }
 
   public Vector2 Move(Vector2 moveAmount, bool standingOnPlatform)
@@ -132,14 +139,24 @@ public class Controller2D : RaycastController
         collisions.right = false;
       }
 
-      if (otherCollider.tag == "Fall Line")
+      if (isDestructable)
       {
-        gameObject.GetComponent<Destructable>().isDead = true;
+        if (otherCollider.tag == "Fall Line")
+        {
+          destructable.isDead = true;
+        }
+
+        if (otherCollider.tag == "Hazard" && isDestructable)
+        {
+          destructable.isDead = true;
+        }
       }
 
-      if (otherCollider.tag == "Hazard")
+      if (this.collider.tag == "Player" && otherCollider.tag == "Collectible")
       {
-        gameObject.GetComponent<Destructable>().isDead = true;
+        destructable.value += 1;
+        otherCollider.gameObject.GetComponent<Collectible>().Collect();
+        Debug.Log("OOO GOLD! I now have: " + destructable.value);
       }
     }
   }
@@ -181,14 +198,24 @@ public class Controller2D : RaycastController
           }
         }
 
-        if (otherCollider.tag == "Fall Line")
+        if (isDestructable)
         {
-          gameObject.GetComponent<Destructable>().isDead = true;
+          if (otherCollider.tag == "Fall Line")
+          {
+            destructable.isDead = true;
+          }
+
+          if (otherCollider.tag == "Hazard")
+          {
+            destructable.isDead = true;
+          }
         }
 
-        if (otherCollider.tag == "Hazard")
+        if (this.collider.tag == "Player" && otherCollider.tag == "Collectible")
         {
-          gameObject.GetComponent<Destructable>().isDead = true;
+          destructable.value += 1;
+          otherCollider.gameObject.GetComponent<Collectible>().Collect();
+          Debug.Log("OOO GOLD! I now have: " + destructable.value);
         }
 
         moveAmount.y = (hit.distance - skinWidth) * directionY;

@@ -5,16 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class Collectible : MonoBehaviour
 {
-  Controller2D controller;
-
   public Transform target;
+  public AudioClip collectibleClip;
 
-  float gravity = 12f;
-
-  float moveSpeed = 13f;
+  Controller2D controller;
 
   // Range at which the player will collect.
   float collectionRange = 5f;
+
+  float gravity = 12f;
+  float moveSpeed = 13f;
 
   float accelerationTimeGrounded = 0.1f;
   float accelerationTimeAirborne = 0.2f;
@@ -30,7 +30,7 @@ public class Collectible : MonoBehaviour
 
     if (target == null)
     {
-      target = GameObject.FindGameObjectWithTag("Player").transform;
+      target = Player.Instance.transform;
     }
     velocity = Random.insideUnitSphere * moveSpeed;
   }
@@ -40,6 +40,11 @@ public class Collectible : MonoBehaviour
   {
     CalculateVelocity();
     controller.Move(velocity * Time.deltaTime, false);
+
+    if (controller.collisions.below)
+    {
+      velocity = Vector3.zero;
+    }
   }
 
   void CalculateVelocity()
@@ -59,5 +64,11 @@ public class Collectible : MonoBehaviour
     }
 
     velocity += Vector3.down * gravity * Time.deltaTime;
+  }
+
+  public void Collect()
+  {
+    LevelManager.Instance.audioSource.PlayOneShot(collectibleClip);
+    GameObject.Destroy(gameObject);
   }
 }

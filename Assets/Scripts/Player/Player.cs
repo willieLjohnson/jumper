@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
+  public static Player Instance;
   public float maxJumpHeight = 4;
   public float minJumpHeight = 1;
   public float timeToJumpApex = .4f;
@@ -36,6 +37,11 @@ public class Player : MonoBehaviour
   public AudioClip jumpClip;
   public AudioClip attackClip;
   public AudioClip walkClip;
+
+  void Awake()
+  {
+    Instance = this;
+  }
 
   void Start()
   {
