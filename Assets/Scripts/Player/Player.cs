@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
   public AudioClip jumpClip;
   public AudioClip attackClip;
   public AudioClip walkClip;
+  AudioSource audioSource;
 
   void Awake()
   {
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
     controller = GetComponent<Controller2D>();
     attackController = GetComponent<AttackController>();
     destructable = GetComponent<Destructable>();
+    audioSource = GetComponent<AudioSource>();
 
     gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -62,15 +64,15 @@ public class Player : MonoBehaviour
     controller.Move(velocity * Time.deltaTime, directionalInput);
     if (directionalInput.x != 0 && controller.collisions.below)
     {
-      if (!LevelManager.Instance.audioSource.isPlaying)
+      if (!audioSource.isPlaying)
       {
-        LevelManager.Instance.audioSource.clip = walkClip;
-        LevelManager.Instance.audioSource.pitch = Random.Range(0.5f, 1.3f);
-        LevelManager.Instance.audioSource.Play();
+        audioSource.clip = walkClip;
+        audioSource.pitch = Random.Range(0.5f, 1.3f);
+        audioSource.Play();
       }
       else
       {
-        LevelManager.Instance.audioSource.pitch = 1f;
+        audioSource.pitch = 1f;
       }
     }
 
@@ -103,7 +105,7 @@ public class Player : MonoBehaviour
   {
     if (wallSliding)
     {
-      LevelManager.Instance.audioSource.PlayOneShot(jumpClip);
+      audioSource.PlayOneShot(jumpClip);
       if (wallDirX == directionalInput.x)
       {
         velocity.x = -wallDirX * wallJumpClimb.x;
@@ -122,8 +124,8 @@ public class Player : MonoBehaviour
     }
     if (controller.collisions.below)
     {
-      LevelManager.Instance.audioSource.pitch = Random.Range(0.7f, 1.5f);
-      LevelManager.Instance.audioSource.PlayOneShot(jumpClip);
+      audioSource.pitch = Random.Range(0.7f, 1.5f);
+      audioSource.PlayOneShot(jumpClip);
       if (controller.collisions.slidingDownMaxSlope)
       {
         if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
@@ -139,7 +141,7 @@ public class Player : MonoBehaviour
     }
     else
     {
-      LevelManager.Instance.audioSource.pitch = 1f;
+      audioSource.pitch = 1f;
     }
   }
 
@@ -155,7 +157,7 @@ public class Player : MonoBehaviour
   {
     Vector3 attackDirection = mousePos - transform.position;
     attackController.Attack(ref velocity, attackDirection, controller.collisions.below, mousePos);
-    LevelManager.Instance.audioSource.PlayOneShot(attackClip);
+    audioSource.PlayOneShot(attackClip);
   }
 
 

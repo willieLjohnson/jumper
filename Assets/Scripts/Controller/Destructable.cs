@@ -45,6 +45,7 @@ public class Destructable : MonoBehaviour
     {
       Debug.Log("Player is dead! " + value);
     }
+
     if (deathParticles)
     {
       ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
