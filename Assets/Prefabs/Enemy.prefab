@@ -165,7 +165,7 @@ MonoBehaviour:
   isDead: 0
   deathDuration: 0.25
   deathParticles: {fileID: 0}
-  damageAudio: {fileID: 8300000, guid: 4ab464272e6f11e48911bca543089ab9, type: 3}
+  damageAudio: {fileID: 8300000, guid: 6066465f937c73040a897359cf433fe9, type: 3}
   deathAudio: {fileID: 8300000, guid: e6db50f034c515e42829f9fb4dbe26d4, type: 3}
 --- !u!114 &8777413987290980043
 MonoBehaviour:
