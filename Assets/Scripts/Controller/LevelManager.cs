@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
     {
       levelTransitioning = true;
       audioSource.PlayOneShot(levelUpClip);
-      Invoke("Win", 1f);
+      Invoke("Win", 2f);
     }
 
     if (player == null && !levelTransitioning)
