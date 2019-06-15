@@ -1596,12 +1596,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4207923649612428166, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207923649612428166, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4207923649612428186, guid: a973d7d55d8d9e7449293c2273c19f8e,
         type: 3}
       propertyPath: collisionMask.m_Bits
       value: 768
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4210230775605571744, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210230775605571744, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210230775605571744, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210230775605571744, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210230775605571744, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768841640309104871, guid: a973d7d55d8d9e7449293c2273c19f8e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f80f67474c6a96f4983c79a26011e26c, type: 2}
+    m_RemovedComponents:
+    - {fileID: 3768841640309104871, guid: a973d7d55d8d9e7449293c2273c19f8e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a973d7d55d8d9e7449293c2273c19f8e, type: 3}
 --- !u!1001 &4050198756070254925
 PrefabInstance:
