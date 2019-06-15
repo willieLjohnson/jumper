@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  collectibleClip: {fileID: 8300000, guid: 0ea357bf133bbf24d92efd9aa361f82e, type: 3}
-  audioVolume: 0.2
+  collectibleClip: {fileID: 8300000, guid: 88086b1971c24f04bb9123755f00612b, type: 3}
+  audioVolume: 0.7
 --- !u!199 &-117818294779787479
 ParticleSystemRenderer:
   serializedVersion: 6

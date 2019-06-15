@@ -74,7 +74,7 @@ public class Collectible : MonoBehaviour
     AudioSource audioSource = collected.AddComponent<AudioSource>();
     audioSource.volume = audioVolume;
     audioSource.PlayOneShot(collectibleClip);
-    audioSource.pitch = Random.Range(0.9f, 1f);
+    audioSource.pitch = Random.Range(0.95f, 1.05f);
 
     GameObject.Destroy(collected, 1f);
     GameObject.Destroy(gameObject);

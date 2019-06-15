@@ -271,8 +271,8 @@ MonoBehaviour:
   wallLeap: {x: 25, y: 19}
   wallSlideSpeedMax: 3
   wallStickTime: 0.35
-  jumpClip: {fileID: 8300000, guid: c9edc7623da4532419c47ada0d811af1, type: 3}
-  attackClip: {fileID: 8300000, guid: c6820d2d5d8e7d14e9ea8db8a63412d8, type: 3}
+  jumpClip: {fileID: 8300000, guid: bd81451f550398e45a6d85ed9fc32d5e, type: 3}
+  attackClip: {fileID: 8300000, guid: 77e9ce42aacaf90479d693487a92c726, type: 3}
   walkClip: {fileID: 8300000, guid: 4eb1bed4809634c41b6a6b533e7466ed, type: 3}
 --- !u!114 &6241089458075834588
 MonoBehaviour:
