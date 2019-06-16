@@ -88,7 +88,7 @@ public class AttackController : RaycastController
       attackPiv.transform.parent = transform;
 
       SpriteRenderer attackSprite = attackPiv.transform.GetComponentInChildren<SpriteRenderer>();
-      attackSprite.transform.position += Vector3.right * range;
+      attackSprite.transform.position += Vector3.right * range / 2;
       attackSprite.transform.localScale += new Vector3(range, range, range);
 
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

@@ -668,6 +668,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19456ad94bad0da4fbcdcd597f4d79ef, type: 3}
+--- !u!1001 &1270086699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1082243939}
+    m_Modifications:
+    - target: {fileID: 983344053650577238, guid: 1b5bb4a9ce750684cac4dddffd8dee12,
+        type: 3}
+      propertyPath: m_Name
+      value: Big Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 1b5bb4a9ce750684cac4dddffd8dee12,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 1b5bb4a9ce750684cac4dddffd8dee12,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -3019408057564206099, guid: 1b5bb4a9ce750684cac4dddffd8dee12,
+        type: 3}
+      propertyPath: attackDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3019408057564206099, guid: 1b5bb4a9ce750684cac4dddffd8dee12,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 2046501484}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b5bb4a9ce750684cac4dddffd8dee12, type: 3}
 --- !u!1001 &1791072324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1819,10 +1853,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1172052430569060764, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884393473046905341, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977389099885489388, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047438090928398146, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306187003369563348, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636780745681869607, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820628567200562477, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6344004893088368775, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_Name
       value: Big Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433522256573366943, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65799916621249260, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
@@ -1833,6 +1907,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896780947372369888, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackPivot
+      value: 
+      objectReference: {fileID: 2046501484}
+    - target: {fileID: 1896780947372369888, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: attackDelay
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3775140110281912153, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}

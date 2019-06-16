@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  moveSpeed: 10
 --- !u!114 &-3019408057564206099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,10 +205,10 @@ MonoBehaviour:
   verticalRaySpacing: 0
   collider: {fileID: 0}
   damage: 110
-  pushForce: {x: 1, y: 0.5}
-  range: 1
-  attackDuration: 0.05
-  attackDelay: 1.5
+  pushForce: {x: 1, y: 2}
+  range: 2
+  attackDuration: 0.1
+  attackDelay: 0.5
   forceParticles: {fileID: 0}
   attackPivot: {fileID: 0}
 --- !u!82 &8074456121801849106
