@@ -2638,31 +2638,6 @@ PrefabInstance:
       propertyPath: deathAudio
       value: 
       objectReference: {fileID: 8300000, guid: e6db50f034c515e42829f9fb4dbe26d4, type: 3}
-    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: attackParticles
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: forceParticles
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: attackSprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: attackPivot
-      value: 
-      objectReference: {fileID: 2046501484}
-    - target: {fileID: 54805423352105829, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: collisionMask.m_Bits
-      value: 1536
-      objectReference: {fileID: 0}
     - target: {fileID: 54805421712875935, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_IsActive
