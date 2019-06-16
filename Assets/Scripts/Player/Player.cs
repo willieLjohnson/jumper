@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
   Controller2D controller;
   AttackController attackController;
   Destructable destructable;
+  GameObject jumpee;
 
   Vector2 directionalInput;
   bool wallSliding;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
   public AudioClip attackClip;
   public AudioClip walkClip;
   AudioSource audioSource;
+
 
   void Awake()
   {
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
     attackController = GetComponent<AttackController>();
     destructable = GetComponent<Destructable>();
     audioSource = GetComponent<AudioSource>();
+    jumpee = GameObject.Find("Jumpee");
 
     gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -87,13 +90,9 @@ public class Player : MonoBehaviour
         velocity.y = 0;
       }
     }
-
     Vector3 scale = transform.localScale;
     scale.x = controller.collisions.faceDir;
-    transform.localScale = scale;
-
-    // Flip collider over the x-axis
-    //center.x = -center.x;
+    jumpee.transform.localScale = scale;
   }
 
   public void SetDirectionalInput(Vector2 input)

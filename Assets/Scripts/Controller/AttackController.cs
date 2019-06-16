@@ -5,17 +5,19 @@ using UnityEngine;
 public class AttackController : RaycastController
 {
   public int damage = 110;
-  public Vector2 pushForce = new Vector2(1f, 0.5f);
   public float range = 2;
 
   public float attackDuration = .05f;
-
   public float attackDelay = 0;
+
+  public Vector2 pushForce = new Vector2(1f, 0.5f);
 
   public ParticleSystem forceParticles;
   public GameObject attackPivot;
 
   public AttackInfo attack;
+
+  SpriteRenderer attackSpriteRenderer;
   float timeToFinishAttacking;
   float timeToNextAttack;
 
@@ -27,6 +29,12 @@ public class AttackController : RaycastController
   {
     base.Start();
     controller = GetComponent<Controller2D>();
+    if (attackPivot)
+    {
+      attackSpriteRenderer = attackPivot.transform.GetComponentInChildren<SpriteRenderer>();
+      attackSpriteRenderer.transform.position += Vector3.right * range / 2;
+      attackSpriteRenderer.transform.localScale += new Vector3(range, range, range);
+    }
     range *= collider.bounds.size.x;
   }
 
@@ -38,6 +46,7 @@ public class AttackController : RaycastController
       {
         timeToNextAttack = attackDelay;
         timeToFinishAttacking -= Time.deltaTime;
+        attackSpriteRenderer.enabled = true;
 
         if (attack.horizontal)
         {
@@ -52,6 +61,8 @@ public class AttackController : RaycastController
       else
       {
         timeToFinishAttacking = attackDuration;
+        attackSpriteRenderer.enabled = false;
+        //attackPivot.transform.rotation = Quaternion.identity;
         attack.Reset();
       }
     }
@@ -84,17 +95,8 @@ public class AttackController : RaycastController
 
     if (attackPivot)
     {
-      GameObject attackPiv = Instantiate(attackPivot, transform.position, Quaternion.identity);
-      attackPiv.transform.parent = transform;
-
-      SpriteRenderer attackSprite = attackPiv.transform.GetComponentInChildren<SpriteRenderer>();
-      attackSprite.transform.position += Vector3.right * range / 2;
-      attackSprite.transform.localScale += new Vector3(range, range, range);
-
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-      attackPiv.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-      GameObject.Destroy(attackPiv, attackDuration);
+      attackPivot.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
   }
 
