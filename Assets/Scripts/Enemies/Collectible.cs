@@ -7,7 +7,7 @@ public class Collectible : MonoBehaviour
 {
   public Transform target;
   public AudioClip collectibleClip;
-  public float audioVolume = 0.7f;
+  public AudioManager audioManager;
 
   Controller2D controller;
 
@@ -70,13 +70,7 @@ public class Collectible : MonoBehaviour
 
   public void Collect()
   {
-    GameObject collected = new GameObject();
-    AudioSource audioSource = collected.AddComponent<AudioSource>();
-    audioSource.volume = audioVolume;
-    audioSource.PlayOneShot(collectibleClip);
-    audioSource.pitch = Random.Range(0.95f, 1.05f);
-
-    GameObject.Destroy(collected, 1f);
+    audioManager.PlayWithIncreasingPitch(collectibleClip);
     GameObject.Destroy(gameObject);
   }
 }
