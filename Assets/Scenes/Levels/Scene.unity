@@ -3278,16 +3278,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.21
       objectReference: {fileID: 0}
-    - target: {fileID: 1896780947372369888, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: attackPivot
-      value: 
-      objectReference: {fileID: 2046501484}
-    - target: {fileID: 1896780947372369888, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: attackDelay
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 3775140110281912153, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_IsActive
