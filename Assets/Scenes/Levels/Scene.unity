@@ -524,6 +524,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19456ad94bad0da4fbcdcd597f4d79ef, type: 3}
+--- !u!1001 &994652992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1082243939}
+    m_Modifications:
+    - target: {fileID: 983344053650577238, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_Name
+      value: Gem Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983344053650577229, guid: 20c6072884c046c4eb558752c5dc2a13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20c6072884c046c4eb558752c5dc2a13, type: 3}
 --- !u!4 &1082243939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 54805421712875934, guid: becdb68940fd01f459fce6dbbbbf265d,
@@ -1911,6 +1980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 54805423214442135, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_Name
+      value: Gem Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 65799916621249260, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
