@@ -51,6 +51,7 @@ public class Destructable : MonoBehaviour
     if (deathParticles)
     {
       ParticleSystem deathPS = Instantiate(deathParticles, transform.position, Quaternion.identity);
+      deathPS.Play();
       Destroy(deathPS, deathPS.main.duration);
     }
 
