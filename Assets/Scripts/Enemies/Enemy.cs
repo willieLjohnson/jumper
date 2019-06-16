@@ -5,14 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class Enemy : MonoBehaviour
 {
+  public Transform target;
+  public float moveSpeed = 13f;
+
   Controller2D controller;
   AttackController attackController;
 
-  public Transform target;
-
   float gravity = 12f;
-
-  float moveSpeed = 13f;
 
   float accelerationTimeGrounded = 0.1f;
   float accelerationTimeAirborne = 0.2f;
