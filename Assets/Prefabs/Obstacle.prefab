@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  value: 1
+  value: 0.5
   isDead: 0
   deathDuration: 0.25
   deathParticles: {fileID: 1956599165343237956}

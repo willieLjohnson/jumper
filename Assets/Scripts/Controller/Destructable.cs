@@ -5,7 +5,7 @@ using UnityEngine;
 public class Destructable : MonoBehaviour
 {
   public int health = 100;
-  public int value = 0;
+  public float value = 0;
 
   public bool isDead = false;
   public float deathDuration = 0.25f;
