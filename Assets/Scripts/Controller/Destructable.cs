@@ -19,12 +19,11 @@ public class Destructable : MonoBehaviour
 
   Transform meshTransform;
 
-  private Vector2 initialPosition;
+  private Vector3 meshInitialPosition;
   private float shakeTimer = 0f;
   private float shakeMagnitude = 0.2f;
   private float dampingSpeed = 1.0f;
   public bool shaking = false;
-
 
   void Awake()
   {
@@ -35,24 +34,26 @@ public class Destructable : MonoBehaviour
   void Start()
   {
     audioSource = gameObject.GetComponent<AudioSource>();
-    meshTransform = gameObject.transform.Find("Mesh");
-    if (tag == "Player")
+    foreach (Transform child in transform)
     {
-      meshTransform = gameObject.transform.Find("Jumpee");
+      if (child.tag == "Mesh")
+      {
+        meshTransform = child;
+        meshInitialPosition = child.localPosition;
+      }
     }
-    initialPosition = meshTransform.localPosition;
-    Debug.Log("Tag: " + tag + " Source: " + audioSource);
   }
 
   // Update is called once per frame
   void Update()
   {
-    if (shaking)
-      UpdateShake();
-    else
-    {
-      meshTransform.localPosition = initialPosition;
-    }
+    if (meshTransform)
+      if (shaking)
+        UpdateShake();
+      else
+      {
+        meshTransform.localPosition = meshInitialPosition;
+      }
 
 
     if (health <= 0 || isDead)
@@ -67,7 +68,8 @@ public class Destructable : MonoBehaviour
     health -= amount;
     audioSource.PlayOneShot(damageAudio);
     CameraFollow.Instance.TriggerShake(0.05f, 0.05f);
-    TriggerShake();
+    if (meshTransform)
+      TriggerShake();
   }
 
   /// Shakes camera by moving it around randomly during shake timer.
@@ -75,7 +77,12 @@ public class Destructable : MonoBehaviour
   {
     if (shakeTimer > 0)
     {
-      meshTransform.localPosition = initialPosition + (Vector2)Random.insideUnitSphere * shakeMagnitude;
+      Vector3 shakeAmount = Random.insideUnitSphere * shakeMagnitude;
+      shakeAmount.x /= transform.localScale.x;
+      shakeAmount.y /= transform.localScale.y;
+
+      meshTransform.localPosition = meshInitialPosition + shakeAmount;
+
       shakeTimer -= Time.deltaTime * dampingSpeed;
     }
     else
@@ -86,7 +93,7 @@ public class Destructable : MonoBehaviour
   }
 
   /// Triggers camera shake.
-  public void TriggerShake(float magnitude = 0.05f, float duration = 0.25f, float damp = 1.0f)
+  public void TriggerShake(float magnitude = 0.5f, float duration = 0.2f, float damp = 1.0f)
   {
     shakeTimer = duration;
     shakeMagnitude = magnitude;
