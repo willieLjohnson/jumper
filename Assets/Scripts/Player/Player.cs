@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
   AttackController attackController;
   Destructable destructable;
   GameObject jumpee;
+  Animator jumpeeAnimator;
   ParticleSystem lifeForceParticleSystem;
 
   Vector2 directionalInput;
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
     destructable = GetComponent<Destructable>();
     audioSource = GetComponent<AudioSource>();
     jumpee = GameObject.Find("Jumpee");
+    jumpeeAnimator = jumpee.GetComponent<Animator>();
     lifeForceParticleSystem = jumpee.GetComponent<ParticleSystem>();
 
     gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -97,6 +99,8 @@ public class Player : MonoBehaviour
       {
         velocity.y = 0;
       }
+
+      jumpeeAnimator.SetBool("isJumping", false);
     }
     Vector3 scale = transform.localScale;
     scale.x = controller.collisions.faceDir;
@@ -157,10 +161,13 @@ public class Player : MonoBehaviour
     {
       audioSource.pitch = 1f;
     }
+
+    jumpeeAnimator.SetBool("isJumping", true);
   }
 
   public void OnJumpInputUp()
   {
+    jumpeeAnimator.SetBool("isJumping", true);
     if (velocity.y > minJumpVelocity)
     {
       velocity.y = minJumpVelocity;

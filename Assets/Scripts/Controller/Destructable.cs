@@ -87,7 +87,6 @@ public class Destructable : MonoBehaviour
 
       meshTransform.localPosition = meshInitialPosition + shakeAmount;
 
-
       shakeTimer -= Time.deltaTime * dampingSpeed;
     }
     else
@@ -99,7 +98,7 @@ public class Destructable : MonoBehaviour
   }
 
   /// Triggers camera shake.
-  public void TriggerShake(float magnitude = 0.5f, float duration = 0.2f, float damp = 1.0f)
+  public void TriggerShake(float magnitude = 0.25f, float duration = 0.2f, float damp = 1.0f)
   {
     meshRenderer.material.color = Color.red + meshInitialColor;
     shakeTimer = duration;
