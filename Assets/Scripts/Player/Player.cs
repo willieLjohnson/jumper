@@ -102,6 +102,18 @@ public class Player : MonoBehaviour
 
       jumpeeAnimator.SetBool("isJumping", false);
     }
+
+    if (!controller.collisions.below)
+    {
+      jumpeeAnimator.SetBool("isJumping", velocity.y > 0);
+      jumpeeAnimator.SetBool("isFalling", velocity.y <= 0);
+    }
+    else
+    {
+      jumpeeAnimator.SetBool("isJumping", false);
+      jumpeeAnimator.SetBool("isFalling", false);
+    }
+
     Vector3 scale = transform.localScale;
     scale.x = controller.collisions.faceDir;
     jumpee.transform.localScale = scale;
@@ -161,13 +173,10 @@ public class Player : MonoBehaviour
     {
       audioSource.pitch = 1f;
     }
-
-    jumpeeAnimator.SetBool("isJumping", true);
   }
 
   public void OnJumpInputUp()
   {
-    jumpeeAnimator.SetBool("isJumping", true);
     if (velocity.y > minJumpVelocity)
     {
       velocity.y = minJumpVelocity;
