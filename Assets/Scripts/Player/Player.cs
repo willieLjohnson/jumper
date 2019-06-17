@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
   AttackController attackController;
   Destructable destructable;
   GameObject jumpee;
+  ParticleSystem lifeForceParticleSystem;
 
   Vector2 directionalInput;
   bool wallSliding;
@@ -40,6 +41,8 @@ public class Player : MonoBehaviour
   public AudioClip walkClip;
   AudioSource audioSource;
 
+  float lifeTimer = 5;
+  public float gemTimerRefrechAmount = 0.2f;
 
   void Awake()
   {
@@ -53,6 +56,7 @@ public class Player : MonoBehaviour
     destructable = GetComponent<Destructable>();
     audioSource = GetComponent<AudioSource>();
     jumpee = GameObject.Find("Jumpee");
+    lifeForceParticleSystem = jumpee.GetComponent<ParticleSystem>();
 
     gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -93,6 +97,13 @@ public class Player : MonoBehaviour
     Vector3 scale = transform.localScale;
     scale.x = controller.collisions.faceDir;
     jumpee.transform.localScale = scale;
+
+    lifeTimer -= Time.deltaTime;
+    lifeForceParticleSystem.startLifetime = lifeTimer / 10;
+    if (lifeTimer < 0)
+    {
+      destructable.Damage(9000);
+    }
   }
 
   public void SetDirectionalInput(Vector2 input)
