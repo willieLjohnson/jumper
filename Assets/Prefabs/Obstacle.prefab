@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1241731371870265888}
   - component: {fileID: 1241731371870265889}
   - component: {fileID: 1241731371870265902}
+  - component: {fileID: -4424001075323712251}
   m_Layer: 9
   m_Name: Obstacle
   m_TagString: Untagged
@@ -105,3 +106,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994}
   m_EdgeRadius: 0
+--- !u!114 &-4424001075323712251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241731371870265903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  value: 1
+  isDead: 0
+  deathDuration: 0.25
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}

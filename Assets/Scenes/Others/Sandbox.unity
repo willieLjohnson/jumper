@@ -729,6 +729,11 @@ PrefabInstance:
       propertyPath: health
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5047438090928398148, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: health
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 6344004893088368769, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: audioSource
@@ -1524,6 +1529,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4751256180471421789, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: health
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 3775140110281912153, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_IsActive
@@ -1553,6 +1563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.9875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424073637298350637, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: health
+      value: 9999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becdb68940fd01f459fce6dbbbbf265d, type: 3}

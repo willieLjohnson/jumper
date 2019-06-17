@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 70663133}
   - component: {fileID: 70663132}
   - component: {fileID: 70663131}
+  - component: {fileID: 70663134}
   m_Layer: 9
   m_Name: Obstacle (2)
   m_TagString: Untagged
@@ -225,6 +226,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70663129}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &70663134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70663129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1 &112826173
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +257,7 @@ GameObject:
   - component: {fileID: 112826177}
   - component: {fileID: 112826176}
   - component: {fileID: 112826175}
+  - component: {fileID: 112826178}
   m_Layer: 9
   m_Name: Obstacle 1 (2)
   m_TagString: Untagged
@@ -330,6 +351,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112826173}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &112826178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112826173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1001 &146090618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -591,6 +631,7 @@ GameObject:
   - component: {fileID: 532119158}
   - component: {fileID: 532119157}
   - component: {fileID: 532119156}
+  - component: {fileID: 532119159}
   m_Layer: 9
   m_Name: Obstacle (1)
   m_TagString: Untagged
@@ -684,6 +725,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532119154}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &532119159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532119154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!4 &574435039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
@@ -1031,6 +1091,7 @@ GameObject:
   - component: {fileID: 1049787652}
   - component: {fileID: 1049787651}
   - component: {fileID: 1049787650}
+  - component: {fileID: 1049787653}
   m_Layer: 9
   m_Name: Obstacle 2 (4)
   m_TagString: Untagged
@@ -1124,6 +1185,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049787648}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1049787653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049787648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!4 &1082243939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 54805421712875934, guid: becdb68940fd01f459fce6dbbbbf265d,
@@ -1176,10 +1256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  value: 0
+  health: 500
+  value: 1
   isDead: 0
-  deathDuration: 0.25
+  deathDuration: 0
   deathParticles: {fileID: 0}
   damageAudio: {fileID: 0}
   deathAudio: {fileID: 0}
@@ -1342,6 +1422,7 @@ GameObject:
   - component: {fileID: 1240845949}
   - component: {fileID: 1240845948}
   - component: {fileID: 1240845947}
+  - component: {fileID: 1240845950}
   m_Layer: 9
   m_Name: Obstacle 2
   m_TagString: Untagged
@@ -1435,6 +1516,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240845945}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1240845950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240845945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1001 &1292563876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1555,6 +1655,7 @@ GameObject:
   - component: {fileID: 1426887457}
   - component: {fileID: 1426887456}
   - component: {fileID: 1426887455}
+  - component: {fileID: 1426887458}
   m_Layer: 9
   m_Name: Obstacle 2 (3)
   m_TagString: Untagged
@@ -1648,6 +1749,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426887453}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1426887458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426887453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1 &1531022105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1780,7 @@ GameObject:
   - component: {fileID: 1531022109}
   - component: {fileID: 1531022108}
   - component: {fileID: 1531022107}
+  - component: {fileID: 1531022110}
   m_Layer: 9
   m_Name: Obstacle 1
   m_TagString: Untagged
@@ -1753,6 +1874,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531022105}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1531022110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531022105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1 &1566467072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,6 +1974,7 @@ GameObject:
   - component: {fileID: 1724632777}
   - component: {fileID: 1724632776}
   - component: {fileID: 1724632775}
+  - component: {fileID: 1724632778}
   m_Layer: 9
   m_Name: Obstacle 1 (1)
   m_TagString: Untagged
@@ -1927,6 +2068,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724632773}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1724632778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724632773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1001 &1734756453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2013,9 +2173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  value: 0
+  value: 1
   isDead: 0
-  deathDuration: 0.25
+  deathDuration: 0
   deathParticles: {fileID: 0}
   damageAudio: {fileID: 0}
   deathAudio: {fileID: 0}
@@ -2103,6 +2263,7 @@ GameObject:
   - component: {fileID: 1888123715}
   - component: {fileID: 1888123714}
   - component: {fileID: 1888123713}
+  - component: {fileID: 1888123716}
   m_Layer: 9
   m_Name: Obstacle 2 (2)
   m_TagString: Untagged
@@ -2196,6 +2357,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888123711}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1888123716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888123711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  value: 1
+  isDead: 0
+  deathDuration: 0
+  deathParticles: {fileID: 0}
+  damageAudio: {fileID: 0}
+  deathAudio: {fileID: 0}
 --- !u!1001 &1954983210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2323,6 +2503,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6814779885795395862, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_Name
+      value: World
+      objectReference: {fileID: 0}
+    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54805423352105839, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 3584
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775140110281912134, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54805421507202455, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8164923890954527026, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
@@ -2397,36 +2612,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814779885795395862, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: m_Name
-      value: World
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105835, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805423352105839, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: collisionMask.m_Bits
-      value: 3584
-      objectReference: {fileID: 0}
-    - target: {fileID: 54805421507202455, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2739473273229594369, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
@@ -3283,11 +3468,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3775140110281912134, guid: becdb68940fd01f459fce6dbbbbf265d,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3410951246308195084, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3306,6 +3486,16 @@ PrefabInstance:
     - target: {fileID: 1723371792739302162, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008922653333210801, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008922653333210801, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: value
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
