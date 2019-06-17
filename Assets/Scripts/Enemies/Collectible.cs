@@ -71,6 +71,7 @@ public class Collectible : MonoBehaviour
   public void Collect()
   {
     audioManager.PlayWithIncreasingPitch(collectibleClip);
+    Player.Instance.OnGemCollected();
     GameObject.Destroy(gameObject);
   }
 }
