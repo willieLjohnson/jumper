@@ -18,8 +18,10 @@ public class Destructable : MonoBehaviour
   AudioSource audioSource;
 
   Transform meshTransform;
+  MeshRenderer meshRenderer;
 
   private Vector3 meshInitialPosition;
+  private Color meshInitialColor;
   private float shakeTimer = 0f;
   private float shakeMagnitude = 0.2f;
   private float dampingSpeed = 1.0f;
@@ -39,7 +41,9 @@ public class Destructable : MonoBehaviour
       if (child.tag == "Mesh")
       {
         meshTransform = child;
+        meshRenderer = child.GetComponent<MeshRenderer>();
         meshInitialPosition = child.localPosition;
+        meshInitialColor = meshRenderer.material.color;
       }
     }
   }
@@ -83,10 +87,12 @@ public class Destructable : MonoBehaviour
 
       meshTransform.localPosition = meshInitialPosition + shakeAmount;
 
+
       shakeTimer -= Time.deltaTime * dampingSpeed;
     }
     else
     {
+      meshRenderer.material.color = meshInitialColor;
       shakeTimer = 0f;
       shaking = false;
     }
@@ -95,6 +101,7 @@ public class Destructable : MonoBehaviour
   /// Triggers camera shake.
   public void TriggerShake(float magnitude = 0.5f, float duration = 0.2f, float damp = 1.0f)
   {
+    meshRenderer.material.color = Color.red + meshInitialColor;
     shakeTimer = duration;
     shakeMagnitude = magnitude;
     dampingSpeed = damp;
