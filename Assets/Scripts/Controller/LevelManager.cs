@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
   private bool newLevel = false;
 
   Text enemiesLeftText;
+  Text pauseMenu;
   Transform enemies;
   GameObject player;
 
@@ -44,6 +45,9 @@ public class LevelManager : MonoBehaviour
   {
     enemies = GameObject.Find("Enemies").transform;
     enemiesLeftText = GameObject.Find("Enemies Left").GetComponent<Text>();
+    pauseMenu = GameObject.Find("Pause").GetComponent<Text>();
+    pauseMenu.enabled = false;
+
     player = Player.Instance.gameObject;
 
     levelTransitioning = false;
@@ -111,5 +115,18 @@ public class LevelManager : MonoBehaviour
     currentScene++;
     newLevel = true;
     SceneManager.LoadScene(currentScene);
+  }
+
+  public void HandlePause()
+  {
+    pauseMenu.enabled = !pauseMenu.enabled;
+    if (Time.timeScale == 0)
+    {
+      Time.timeScale = 1;
+    }
+    else
+    {
+      Time.timeScale = 0;
+    }
   }
 }

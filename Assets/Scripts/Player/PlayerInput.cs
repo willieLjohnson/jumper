@@ -34,14 +34,7 @@ public class PlayerInput : MonoBehaviour
 
     if (Input.GetKeyDown(KeyCode.Escape))
     {
-      if (Time.timeScale == 0)
-      {
-        Time.timeScale = 1;
-      }
-      else
-      {
-        Time.timeScale = 0;
-      }
+      LevelManager.Instance.HandlePause();
     }
   }
 }
