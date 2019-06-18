@@ -978,6 +978,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6241089458075834579, guid: 78b6a7df99474a14e87c2e547f07e3a6,
+        type: 3}
+      propertyPath: pushForce.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241089458075834579, guid: 78b6a7df99474a14e87c2e547f07e3a6,
+        type: 3}
+      propertyPath: pushForce.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6241089458075834586, guid: 78b6a7df99474a14e87c2e547f07e3a6,
         type: 3}
       propertyPath: maxLifeTimer
