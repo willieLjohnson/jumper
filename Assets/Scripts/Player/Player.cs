@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
   AudioSource audioSource;
 
   public const float gemTimerRefrechAmount = 0.2f;
-  const float maxLifeTimer = 5;
+  public float maxLifeTimer = 5;
   const float lifeTimerOverflow = 2;
   float lifeTimer;
 
@@ -67,6 +67,11 @@ public class Player : MonoBehaviour
     minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
     lifeTimer = maxLifeTimer;
+    if (maxLifeTimer == -1)
+    {
+      lifeTimer = 5;
+      lifeForceParticleSystem.startLifetime = 0.5f;
+    }
   }
 
   void Update()
@@ -118,11 +123,14 @@ public class Player : MonoBehaviour
     scale.x = controller.collisions.faceDir;
     jumpee.transform.localScale = scale;
 
-    lifeTimer -= Time.deltaTime;
-    lifeForceParticleSystem.startLifetime = lifeTimer / 10;
-    if (lifeTimer < 0)
+    if (maxLifeTimer != -1)
     {
-      destructable.Damage(9000);
+      lifeTimer -= Time.deltaTime;
+      lifeForceParticleSystem.startLifetime = lifeTimer / 10;
+      if (lifeTimer < 0)
+      {
+        destructable.Damage(9000);
+      }
     }
   }
 
