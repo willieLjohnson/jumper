@@ -31,5 +31,17 @@ public class PlayerInput : MonoBehaviour
     {
       player.OnAttackButtonDown(cam.ScreenToWorldPoint(Input.mousePosition));
     }
+
+    if (Input.GetKeyDown(KeyCode.Escape))
+    {
+      if (Time.timeScale == 0)
+      {
+        Time.timeScale = 1;
+      }
+      else
+      {
+        Time.timeScale = 0;
+      }
+    }
   }
 }
