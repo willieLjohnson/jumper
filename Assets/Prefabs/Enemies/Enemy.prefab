@@ -115,13 +115,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeac376bf42f0a4abb836feac817d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   value: 1
   isDead: 0
   deathDuration: 0.25
   deathParticles: {fileID: 4622793316535501263}
   damageAudio: {fileID: 8300000, guid: 6066465f937c73040a897359cf433fe9, type: 3}
   deathAudio: {fileID: 8300000, guid: e6db50f034c515e42829f9fb4dbe26d4, type: 3}
+  shaking: 0
 --- !u!114 &8777413987290980043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
-  damage: 110
+  damage: 50
   range: 1
   attackDuration: 0.05
   attackDelay: 1.5
@@ -459,6 +460,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4345198424350049438, guid: 07c0e31fddae5a74bb358c8326125678,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4345198424350049424, guid: 07c0e31fddae5a74bb358c8326125678,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,11 +518,6 @@ PrefabInstance:
     - target: {fileID: 4345198424350049424, guid: 07c0e31fddae5a74bb358c8326125678,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4345198424350049438, guid: 07c0e31fddae5a74bb358c8326125678,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

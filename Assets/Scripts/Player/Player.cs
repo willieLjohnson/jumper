@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
     minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-    lifeTimer = maxLifeTimer;
+    lifeTimer = maxLifeTimer / 2;
     if (maxLifeTimer == -1)
     {
       lifeTimer = 5;

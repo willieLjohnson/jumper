@@ -205,6 +205,7 @@ MonoBehaviour:
   deathParticles: {fileID: 7078960542925192432}
   damageAudio: {fileID: 8300000, guid: 6066465f937c73040a897359cf433fe9, type: 3}
   deathAudio: {fileID: 8300000, guid: e6db50f034c515e42829f9fb4dbe26d4, type: 3}
+  shaking: 0
 --- !u!114 &6241089458075834586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: bd81451f550398e45a6d85ed9fc32d5e, type: 3}
   attackClip: {fileID: 8300000, guid: 77e9ce42aacaf90479d693487a92c726, type: 3}
   walkClip: {fileID: 8300000, guid: 4eb1bed4809634c41b6a6b533e7466ed, type: 3}
+  maxLifeTimer: 10
 --- !u!114 &6241089458075834588
 MonoBehaviour:
   m_ObjectHideFlags: 0
