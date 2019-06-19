@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1792
+    m_Bits: 768
   skinWidth: 0.015
   dstBetweenRays: 0.25
   horizontalRayCount: 4
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   collectibleClip: {fileID: 8300000, guid: 88086b1971c24f04bb9123755f00612b, type: 3}
-  audioVolume: 0.7
+  audioManager: {fileID: 0}
 --- !u!199 &-117818294779787479
 ParticleSystemRenderer:
   serializedVersion: 6

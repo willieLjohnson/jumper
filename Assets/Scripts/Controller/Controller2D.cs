@@ -95,35 +95,38 @@ public class Controller2D : RaycastController
 
         float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-        if (i == 0 && slopeAngle <= maxSlopeAngle)
+        if (otherCollider.tag != "Collectible")
         {
-          if (collisions.descendingSlope)
+          if (i == 0 && slopeAngle <= maxSlopeAngle)
           {
-            collisions.descendingSlope = false;
-            moveAmount = collisions.moveAmountOld;
-          }
-          float distanceToSlopeStart = 0;
-          if (slopeAngle != collisions.slopeAngleOld)
-          {
-            distanceToSlopeStart = hit.distance - skinWidth;
-            moveAmount.x -= distanceToSlopeStart * directionX;
-          }
-          ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
-          moveAmount.x += distanceToSlopeStart * directionX;
-        }
-
-        if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle)
-        {
-          moveAmount.x = (hit.distance - skinWidth) * directionX;
-          rayLength = hit.distance;
-
-          if (collisions.climbingSlope)
-          {
-            moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
+            if (collisions.descendingSlope)
+            {
+              collisions.descendingSlope = false;
+              moveAmount = collisions.moveAmountOld;
+            }
+            float distanceToSlopeStart = 0;
+            if (slopeAngle != collisions.slopeAngleOld)
+            {
+              distanceToSlopeStart = hit.distance - skinWidth;
+              moveAmount.x -= distanceToSlopeStart * directionX;
+            }
+            ClimbSlope(ref moveAmount, slopeAngle, hit.normal);
+            moveAmount.x += distanceToSlopeStart * directionX;
           }
 
-          collisions.left = directionX == -1;
-          collisions.right = directionX == 1;
+          if ((!collisions.climbingSlope || slopeAngle > maxSlopeAngle))
+          {
+            moveAmount.x = (hit.distance - skinWidth) * directionX;
+            rayLength = hit.distance;
+
+            if (collisions.climbingSlope)
+            {
+              moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
+            }
+
+            collisions.left = directionX == -1;
+            collisions.right = directionX == 1;
+          }
         }
       }
     }
@@ -199,16 +202,21 @@ public class Controller2D : RaycastController
           }
         }
 
-        moveAmount.y = (hit.distance - skinWidth) * directionY;
-        rayLength = hit.distance;
-
-        if (collisions.climbingSlope)
+        if (otherCollider.tag != "Collectible")
         {
-          moveAmount.x = moveAmount.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(moveAmount.x);
-        }
+          moveAmount.y = (hit.distance - skinWidth) * directionY;
 
-        collisions.below = directionY == -1;
-        collisions.above = directionY == 1;
+
+          rayLength = hit.distance;
+
+          if (collisions.climbingSlope)
+          {
+            moveAmount.x = moveAmount.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(moveAmount.x);
+          }
+
+          collisions.below = directionY == -1;
+          collisions.above = directionY == 1;
+        }
       }
 
       if (otherCollider != null && otherCollider.gameObject != this.gameObject)
