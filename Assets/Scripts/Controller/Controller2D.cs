@@ -151,7 +151,7 @@ public class Controller2D : RaycastController
 
         if (otherCollider.tag == "Hazard" && isDestructable)
         {
-          destructable.isDead = true;
+          destructable.Damage(9000);
         }
       }
 
@@ -231,7 +231,7 @@ public class Controller2D : RaycastController
 
           if (otherCollider.tag == "Hazard")
           {
-            destructable.isDead = true;
+            destructable.Damage(9000);
           }
         }
 

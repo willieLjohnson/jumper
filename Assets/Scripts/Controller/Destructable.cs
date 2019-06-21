@@ -69,11 +69,21 @@ public class Destructable : MonoBehaviour
 
   public void Damage(int amount)
   {
+    if (tag == "Player")
+    {
+      if (Player.Instance.isDaemonMode)
+      {
+        Player.Instance.ToggleDaemonMode(true);
+        return;
+      }
+    }
+
     health -= amount;
     audioSource.PlayOneShot(damageAudio);
     CameraFollow.Instance.TriggerShake(0.05f, 0.05f);
     if (meshTransform)
       TriggerShake();
+
   }
 
   /// Shakes camera by moving it around randomly during shake timer.

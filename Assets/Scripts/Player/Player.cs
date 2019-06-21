@@ -44,8 +44,8 @@ public class Player : MonoBehaviour
   AudioSource audioSource;
 
   public bool inDestructable = false;
-  bool isDaemonMode = false;
-  const float maxLifeTimer = 30;
+  public bool isDaemonMode = false;
+  const float maxLifeTimer = 20;
   const float daemonMode = 10;
   float gemTimerRefrechAmount;
   float lifeTimer;
@@ -70,8 +70,8 @@ public class Player : MonoBehaviour
 
     CalculateJumpWithGravity();
 
-    lifeTimer = maxLifeTimer / 10;
-    gemTimerRefrechAmount = maxLifeTimer * 0.01f;
+    lifeTimer = maxLifeTimer * 0.1f;
+    gemTimerRefrechAmount = maxLifeTimer * 0.03f;
 
     if (inDestructable)
     {
@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
     }
   }
 
-  private void ToggleDaemonMode()
+  public void ToggleDaemonMode(bool wasDamaged = false)
   {
     if (!isDaemonMode)
     {
@@ -175,6 +175,7 @@ public class Player : MonoBehaviour
       minJumpHeight = 5;
       isDaemonMode = true;
       daemonParticleSystem.Play();
+      daemonModeTimer = daemonMode;
     }
     else
     {
@@ -183,6 +184,12 @@ public class Player : MonoBehaviour
       maxJumpHeight = 4;
       minJumpHeight = 1;
       isDaemonMode = false;
+      daemonModeTimer = 0;
+    }
+
+    if (wasDamaged)
+    {
+      lifeTimer *= 0.25f;
     }
   }
 
@@ -262,7 +269,6 @@ public class Player : MonoBehaviour
       if (lifeTimer > maxLifeTimer && !isDaemonMode)
       {
         lifeTimer = maxLifeTimer;
-        daemonModeTimer = daemonMode;
         ToggleDaemonMode();
       }
     }
