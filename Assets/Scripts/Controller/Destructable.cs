@@ -30,7 +30,7 @@ public class Destructable : MonoBehaviour
   void Awake()
   {
     // value of 0 means it won't start of with a random value.
-    value *= (int)(Mathf.Abs(Random.insideUnitSphere.x) * 10);
+    value *= 1 + (int)(Mathf.Abs(Random.insideUnitSphere.x) * 10);
   }
 
   void Start()
