@@ -51,13 +51,13 @@ public class Destructable : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (meshTransform)
-      if (shaking)
-        UpdateShake();
-      else
-      {
-        meshTransform.localPosition = meshInitialPosition;
-      }
+
+    if (shaking)
+      UpdateShake();
+    else
+    {
+      if (meshTransform) meshTransform.localPosition = meshInitialPosition;
+    }
 
 
     if (health <= 0 || isDead)
@@ -69,26 +69,32 @@ public class Destructable : MonoBehaviour
 
   public void Damage(int amount)
   {
+    audioSource.PlayOneShot(damageAudio);
+
     if (tag == "Player")
     {
+      CameraFollow.Instance.TriggerShake(0.5f, 0.05f);
+      TriggerShake(0.7f);
       if (Player.Instance.isDaemonMode)
       {
         Player.Instance.ToggleDaemonMode(true);
+        TriggerShake();
         return;
       }
     }
+    else
+    {
+      CameraFollow.Instance.TriggerShake(0.05f, 0.05f);
+    }
 
     health -= amount;
-    audioSource.PlayOneShot(damageAudio);
-    CameraFollow.Instance.TriggerShake(0.05f, 0.05f);
-    if (meshTransform)
-      TriggerShake();
-
   }
 
   /// Shakes camera by moving it around randomly during shake timer.
   private void UpdateShake()
   {
+    if (!meshTransform) return;
+
     if (shakeTimer > 0)
     {
       Vector3 shakeAmount = Random.insideUnitSphere * shakeMagnitude;
@@ -110,6 +116,8 @@ public class Destructable : MonoBehaviour
   /// Triggers camera shake.
   public void TriggerShake(float magnitude = 0.25f, float duration = 0.2f, float damp = 1.0f)
   {
+    if (!meshTransform) return;
+
     meshRenderer.material.color = Color.red + meshInitialColor;
     shakeTimer = duration;
     shakeMagnitude = magnitude;
