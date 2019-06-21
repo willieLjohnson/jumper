@@ -43,8 +43,8 @@ public class Player : MonoBehaviour
   AudioSource audioSource;
 
   public bool inDestructable = false;
-  const float maxLifeTimer = 20;
-  const float lifeTimerOverflow = 10;
+  const float maxLifeTimer = 30;
+  const float deamonMode = 10;
   float gemTimerRefrechAmount;
   float lifeTimer;
   Color camBackground;
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
     minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-    lifeTimer = maxLifeTimer / 2;
+    lifeTimer = maxLifeTimer / 10;
     gemTimerRefrechAmount = maxLifeTimer / 20;
 
     if (inDestructable)
@@ -141,6 +141,8 @@ public class Player : MonoBehaviour
       {
         destructable.Damage(9000);
       }
+
+      jumpee.GetComponent<MeshRenderer>().enabled = lifeTimer < maxLifeTimer;
     }
   }
 
@@ -211,7 +213,7 @@ public class Player : MonoBehaviour
   public void OnGemCollected()
   {
     lifeTimer += gemTimerRefrechAmount;
-    float timerCap = maxLifeTimer + lifeTimerOverflow;
+    float timerCap = maxLifeTimer + deamonMode;
     if (lifeTimer >= timerCap) lifeTimer = timerCap;
   }
 
