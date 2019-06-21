@@ -5,6 +5,8 @@ public class CameraFollow : MonoBehaviour
 {
   public static CameraFollow Instance { get; private set; }
 
+  public Camera cam;
+
   public Controller2D target;
   public float verticalOffset;
   public float lookAheadDstX;
@@ -36,6 +38,7 @@ public class CameraFollow : MonoBehaviour
 
   void Start()
   {
+    cam = Camera.main;
     focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
   }
 

@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
   public float maxLifeTimer = 5;
   const float lifeTimerOverflow = 2;
   float lifeTimer;
+  Color camBackground;
 
   void Awake()
   {
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
     minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
     lifeTimer = maxLifeTimer / 2;
+    camBackground = CameraFollow.Instance.cam.backgroundColor;
     if (maxLifeTimer == -1)
     {
       lifeTimer = 5;
@@ -126,8 +128,17 @@ public class Player : MonoBehaviour
     if (maxLifeTimer != -1)
     {
       lifeTimer -= Time.deltaTime;
-      lifeForceParticleSystem.startLifetime = lifeTimer / 10;
       if (lifeTimer < 0)
+      {
+        lifeTimer = 0;
+      }
+
+      lifeForceParticleSystem.startLifetime = lifeTimer / (maxLifeTimer + lifeTimerOverflow);
+      var lifeTimerDiff = (((maxLifeTimer + lifeTimerOverflow) - lifeTimer) / maxLifeTimer) / 10;
+      Debug.Log(lifeTimerDiff);
+      Color deathColor = new Color(lifeTimerDiff, 0, 0);
+      CameraFollow.Instance.cam.backgroundColor = camBackground + deathColor;
+      if (lifeTimer <= 0)
       {
         destructable.Damage(9000);
       }
