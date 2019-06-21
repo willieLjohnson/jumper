@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
   GameObject jumpee;
   Animator jumpeeAnimator;
   ParticleSystem lifeForceParticleSystem;
+  ParticleSystem daemonParticleSystem;
 
   Vector2 directionalInput;
   bool wallSliding;
@@ -43,10 +44,12 @@ public class Player : MonoBehaviour
   AudioSource audioSource;
 
   public bool inDestructable = false;
+  bool isDaemonMode = false;
   const float maxLifeTimer = 30;
-  const float deamonMode = 10;
+  const float daemonMode = 10;
   float gemTimerRefrechAmount;
   float lifeTimer;
+  float daemonModeTimer;
   Color camBackground;
 
   void Awake()
@@ -63,19 +66,25 @@ public class Player : MonoBehaviour
     jumpee = GameObject.Find("Jumpee");
     jumpeeAnimator = jumpee.GetComponent<Animator>();
     lifeForceParticleSystem = jumpee.GetComponent<ParticleSystem>();
+    daemonParticleSystem = GameObject.Find("Daemon Particles").GetComponent<ParticleSystem>();
 
-    gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
-    maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-    minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+    CalculateJumpWithGravity();
 
     lifeTimer = maxLifeTimer / 10;
-    gemTimerRefrechAmount = maxLifeTimer / 20;
+    gemTimerRefrechAmount = maxLifeTimer * 0.01f;
 
     if (inDestructable)
     {
       lifeTimer = maxLifeTimer;
       lifeForceParticleSystem.startLifetime = 1f;
     }
+  }
+
+  private void CalculateJumpWithGravity()
+  {
+    gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+    maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+    minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
   }
 
   void Update()
@@ -129,20 +138,51 @@ public class Player : MonoBehaviour
 
     if (!inDestructable)
     {
-      lifeTimer -= Time.deltaTime;
-      if (lifeTimer < 0)
+      if (daemonModeTimer <= 0)
       {
-        lifeTimer = 0;
-      }
+        lifeTimer -= Time.deltaTime;
+        if (lifeTimer < 0)
+        {
+          lifeTimer = 0;
+        }
 
+        if (lifeTimer <= 0)
+        {
+          destructable.Damage(9000);
+        }
+
+        jumpee.GetComponent<MeshRenderer>().enabled = true;
+        moveSpeed = 13;
+      }
+      else
+      {
+        daemonModeTimer -= Time.deltaTime;
+        if (daemonModeTimer <= 0)
+          ToggleDaemonMode();
+      }
+      Debug.Log("life: " + lifeTimer + " daemon: " + daemonModeTimer);
       lifeForceParticleSystem.startLifetime = lifeTimer / maxLifeTimer;
+    }
+  }
 
-      if (lifeTimer <= 0)
-      {
-        destructable.Damage(9000);
-      }
-
-      jumpee.GetComponent<MeshRenderer>().enabled = lifeTimer < maxLifeTimer;
+  private void ToggleDaemonMode()
+  {
+    if (!isDaemonMode)
+    {
+      jumpee.GetComponent<MeshRenderer>().enabled = false;
+      moveSpeed = 20;
+      maxJumpHeight = 10;
+      minJumpHeight = 5;
+      isDaemonMode = true;
+      daemonParticleSystem.Play();
+    }
+    else
+    {
+      jumpee.GetComponent<MeshRenderer>().enabled = true;
+      moveSpeed = 13;
+      maxJumpHeight = 4;
+      minJumpHeight = 1;
+      isDaemonMode = false;
     }
   }
 
@@ -212,9 +252,20 @@ public class Player : MonoBehaviour
 
   public void OnGemCollected()
   {
-    lifeTimer += gemTimerRefrechAmount;
-    float timerCap = maxLifeTimer + deamonMode;
-    if (lifeTimer >= timerCap) lifeTimer = timerCap;
+    if (daemonModeTimer > 0)
+    {
+      daemonModeTimer += gemTimerRefrechAmount / 2f;
+    }
+    else
+    {
+      lifeTimer += gemTimerRefrechAmount;
+      if (lifeTimer > maxLifeTimer && !isDaemonMode)
+      {
+        lifeTimer = maxLifeTimer;
+        daemonModeTimer = daemonMode;
+        ToggleDaemonMode();
+      }
+    }
   }
 
   void HandleWallSliding()
