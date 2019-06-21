@@ -42,9 +42,10 @@ public class Player : MonoBehaviour
   public AudioClip walkClip;
   AudioSource audioSource;
 
-  public const float gemTimerRefrechAmount = 0.2f;
-  public float maxLifeTimer = 5;
-  const float lifeTimerOverflow = 2;
+  public bool inDestructable = false;
+  const float maxLifeTimer = 20;
+  const float lifeTimerOverflow = 10;
+  float gemTimerRefrechAmount;
   float lifeTimer;
   Color camBackground;
 
@@ -68,11 +69,12 @@ public class Player : MonoBehaviour
     minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
     lifeTimer = maxLifeTimer / 2;
-    camBackground = CameraFollow.Instance.cam.backgroundColor;
-    if (maxLifeTimer == -1)
+    gemTimerRefrechAmount = maxLifeTimer / 20;
+
+    if (inDestructable)
     {
-      lifeTimer = 5;
-      lifeForceParticleSystem.startLifetime = 0.5f;
+      lifeTimer = maxLifeTimer;
+      lifeForceParticleSystem.startLifetime = 1f;
     }
   }
 
@@ -125,7 +127,7 @@ public class Player : MonoBehaviour
     scale.x = controller.collisions.faceDir;
     jumpee.transform.localScale = scale;
 
-    if (maxLifeTimer != -1)
+    if (!inDestructable)
     {
       lifeTimer -= Time.deltaTime;
       if (lifeTimer < 0)
@@ -133,11 +135,8 @@ public class Player : MonoBehaviour
         lifeTimer = 0;
       }
 
-      lifeForceParticleSystem.startLifetime = lifeTimer / (maxLifeTimer + lifeTimerOverflow);
-      var lifeTimerDiff = (((maxLifeTimer + lifeTimerOverflow) - lifeTimer) / maxLifeTimer) / 10;
-      Debug.Log(lifeTimerDiff);
-      Color deathColor = new Color(lifeTimerDiff, 0, 0);
-      CameraFollow.Instance.cam.backgroundColor = camBackground + deathColor;
+      lifeForceParticleSystem.startLifetime = lifeTimer / maxLifeTimer;
+
       if (lifeTimer <= 0)
       {
         destructable.Damage(9000);
