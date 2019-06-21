@@ -51,14 +51,10 @@ public class Destructable : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-
     if (shaking)
       UpdateShake();
-    else
-    {
-      if (meshTransform) meshTransform.localPosition = meshInitialPosition;
-    }
-
+    else if (meshTransform)
+      meshTransform.localPosition = meshInitialPosition;
 
     if (health <= 0 || isDead)
     {
@@ -74,17 +70,18 @@ public class Destructable : MonoBehaviour
     if (tag == "Player")
     {
       CameraFollow.Instance.TriggerShake(0.5f, 0.05f);
-      TriggerShake(0.7f);
+      TriggerShake(0.5f);
+
       if (Player.Instance.isDaemonMode)
       {
         Player.Instance.ToggleDaemonMode(true);
-        TriggerShake();
         return;
       }
     }
     else
     {
       CameraFollow.Instance.TriggerShake(0.05f, 0.05f);
+      TriggerShake();
     }
 
     health -= amount;
@@ -107,6 +104,10 @@ public class Destructable : MonoBehaviour
     }
     else
     {
+      if (tag == "Player")
+      {
+        Player.Instance.ToggleAnimator(true);
+      }
       meshRenderer.material.color = meshInitialColor;
       shakeTimer = 0f;
       shaking = false;
@@ -118,6 +119,10 @@ public class Destructable : MonoBehaviour
   {
     if (!meshTransform) return;
 
+    if (tag == "Player")
+    {
+      Player.Instance.ToggleAnimator(false);
+    }
     meshRenderer.material.color = Color.red + meshInitialColor;
     shakeTimer = duration;
     shakeMagnitude = magnitude;

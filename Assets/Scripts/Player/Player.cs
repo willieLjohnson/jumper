@@ -193,6 +193,11 @@ public class Player : MonoBehaviour
     }
   }
 
+  public void ToggleAnimator(bool enabled)
+  {
+    jumpeeAnimator.enabled = enabled;
+  }
+
   public void SetDirectionalInput(Vector2 input)
   {
     directionalInput = input;
