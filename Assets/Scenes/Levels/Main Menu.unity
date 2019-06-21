@@ -356,7 +356,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1625237508}
-        m_MethodName: GoToFirstScene
+        m_MethodName: GoToFirstLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -992,6 +992,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxLifeTimer
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241089458075834586, guid: 78b6a7df99474a14e87c2e547f07e3a6,
+        type: 3}
+      propertyPath: inDestructable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7528865229055209025, guid: 78b6a7df99474a14e87c2e547f07e3a6,
         type: 3}

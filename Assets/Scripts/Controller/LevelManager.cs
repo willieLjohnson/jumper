@@ -89,28 +89,28 @@ public class LevelManager : MonoBehaviour
   {
     if (currentScene + 1 > SceneManager.sceneCount)
     {
-      GoToFirstScene();
+      GoToFirstLevel();
     }
     else
     {
-      GoToNextScene();
+      GoToNextLevel();
     }
   }
 
   public void Lose()
   {
-    GoToFirstScene();
+    GoToFirstLevel();
   }
 
 
-  public void GoToFirstScene()
+  public void GoToFirstLevel()
   {
-    currentScene = 0;
+    currentScene = 1;
     newLevel = true;
     SceneManager.LoadScene(currentScene);
   }
 
-  public void GoToNextScene()
+  public void GoToNextLevel()
   {
     currentScene++;
     newLevel = true;
