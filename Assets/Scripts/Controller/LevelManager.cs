@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
   public AudioClip levelUpClip;
 
-  private int currentScene = 0;
+  public int currentScene = 0;
 
   private bool levelTransitioning = false;
   private bool newLevel = false;
@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
     {
       levelTransitioning = true;
       audioSource.PlayOneShot(levelUpClip);
-      Invoke("Win", 2f);
+      Invoke("Win", 1.5f);
     }
 
     if (player == null && !levelTransitioning)
@@ -87,7 +87,7 @@ public class LevelManager : MonoBehaviour
 
   public void Win()
   {
-    if (currentScene + 1 > SceneManager.sceneCount)
+    if (currentScene > SceneManager.sceneCountInBuildSettings - 1)
     {
       GoToFirstLevel();
     }
