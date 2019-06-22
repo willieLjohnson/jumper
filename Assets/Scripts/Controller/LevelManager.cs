@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
 
   public void Lose()
   {
-    GoToFirstLevel();
+    RestartLevel();
   }
 
 
@@ -113,6 +113,12 @@ public class LevelManager : MonoBehaviour
   public void GoToNextLevel()
   {
     currentScene++;
+    newLevel = true;
+    SceneManager.LoadScene(currentScene);
+  }
+
+  public void RestartLevel()
+  {
     newLevel = true;
     SceneManager.LoadScene(currentScene);
   }

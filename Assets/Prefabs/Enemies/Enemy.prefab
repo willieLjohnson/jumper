@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efc8bd815d29be4ea1b4c7820d8f5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4622793316535501249}
+  target: {fileID: 0}
   moveSpeed: 13
 --- !u!114 &-3019408057564206099
 MonoBehaviour:
@@ -460,11 +460,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4345198424350049438, guid: 07c0e31fddae5a74bb358c8326125678,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4345198424350049424, guid: 07c0e31fddae5a74bb358c8326125678,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -518,6 +513,11 @@ PrefabInstance:
     - target: {fileID: 4345198424350049424, guid: 07c0e31fddae5a74bb358c8326125678,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345198424350049438, guid: 07c0e31fddae5a74bb358c8326125678,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
