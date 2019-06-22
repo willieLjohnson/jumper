@@ -41,6 +41,8 @@ public class Player : MonoBehaviour
   public AudioClip jumpClip;
   public AudioClip attackClip;
   public AudioClip walkClip;
+  public AudioClip daemonAudio;
+
   AudioSource audioSource;
 
   public bool inDestructable = false;
@@ -175,6 +177,7 @@ public class Player : MonoBehaviour
       minJumpHeight = 5;
       isDaemonMode = true;
       daemonParticleSystem.Play();
+      audioSource.PlayOneShot(daemonAudio);
       daemonModeTimer = daemonMode;
     }
     else

@@ -1875,7 +1875,7 @@ PrefabInstance:
     - target: {fileID: 3775140110281912134, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54805421507202455, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
@@ -2846,6 +2846,21 @@ PrefabInstance:
         type: 3}
       propertyPath: value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775140110281912152, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775140110281912152, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393519035334894224, guid: becdb68940fd01f459fce6dbbbbf265d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: becdb68940fd01f459fce6dbbbbf265d, type: 3}
