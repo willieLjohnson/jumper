@@ -154,7 +154,7 @@ public class Destructable : MonoBehaviour
 
     for (var i = 0; i < value; i++)
     {
-      Instantiate(collectible, transform.position, Quaternion.identity);
+      ObjectPooler.Instance.SpawnFromPool("Collectible", transform.position, Quaternion.identity);
     }
 
     Destroy(gameObject);

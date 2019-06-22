@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
-public class Collectible : MonoBehaviour
+public class Collectible : MonoBehaviour, IPooledObject
 {
   public Transform target;
   public AudioClip collectibleClip;
@@ -27,13 +27,17 @@ public class Collectible : MonoBehaviour
 
   void Start()
   {
-    controller = GetComponent<Controller2D>();
-
+    audioManager = GameObject.Find("Coin Audio Manager").GetComponent<AudioManager>();
     if (target == null && Player.Instance != null)
     {
       target = Player.Instance.transform;
     }
 
+    controller = GetComponent<Controller2D>();
+  }
+
+  public void OnObjectSpawn()
+  {
     velocity = Random.insideUnitSphere * moveSpeed * 2;
   }
 
@@ -72,6 +76,8 @@ public class Collectible : MonoBehaviour
   {
     audioManager.PlayWithIncreasingPitch(collectibleClip);
     Player.Instance.OnGemCollected();
-    GameObject.Destroy(gameObject);
+    target = null;
+    velocity = Vector3.zero;
+    gameObject.SetActive(false);
   }
 }
