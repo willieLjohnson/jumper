@@ -1965,7 +1965,7 @@ PrefabInstance:
     - target: {fileID: 54805423352105836, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}
       propertyPath: inDestructable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54805423214442129, guid: becdb68940fd01f459fce6dbbbbf265d,
         type: 3}

@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
 
     CalculateJumpWithGravity();
 
-    lifeTimer = maxLifeTimer * 0.1f;
+    lifeTimer = maxLifeTimer * 0.2f;
     gemTimerRefrechAmount = maxLifeTimer * 0.03f;
 
     if (inDestructable)
