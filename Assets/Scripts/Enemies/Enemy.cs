@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class Enemy : MonoBehaviour
 {
+  public LayerMask targetMask;
   public Transform target;
   public float moveSpeed = 13f;
 
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     if (target == null)
     {
-      target = GameObject.FindGameObjectWithTag("Player").transform;
+      target = Player.Instance.transform;
     }
   }
 
@@ -48,26 +49,39 @@ public class Enemy : MonoBehaviour
     if (target)
     {
       Vector2 distance = (target.position - transform.position);
+      RaycastHit2D lineOfSight = Physics2D.Raycast(transform.position, distance.normalized, distance.magnitude, targetMask);
+      Collider2D colliderInView = null;
 
-      // Chase target
-      if (Mathf.Abs(distance.x) < 10 && Mathf.Abs(distance.y) < 10)
+      Debug.DrawRay(transform.position, distance, Color.blue);
+
+      if (lineOfSight)
       {
-        float targetVelocityX = Mathf.Sign(distance.x) * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
+        colliderInView = lineOfSight.collider;
+      }
 
-        if (distance.y >= 0.01 && controller.collisions.below)
+      if (colliderInView && colliderInView.tag == target.gameObject.tag)
+      {
+        Debug.DrawRay(transform.position, distance, Color.green);
+        // Chase target
+        if (Mathf.Abs(distance.x) < 15 && Mathf.Abs(distance.y) < 15)
         {
-          velocity.y = 15f;
-          Debug.Log("Jump");
-        }
+          float targetVelocityX = Mathf.Sign(distance.x) * moveSpeed;
+          velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
-        // Check if the position of the cube and sphere are approximately equal.
-        if (distance.x < attackController.range && distance.y < attackController.range)
-        {
-          // Swap the position of the cylinder.
-          attackController.Attack(ref velocity, distance, controller.collisions.below, target.position);
+          if (distance.y >= 0.01 && controller.collisions.below)
+          {
+            velocity.y = 15f;
+          }
+
+          // Check if the position of the cube and sphere are approximately equal.
+          if (distance.x < attackController.range && distance.y < attackController.range)
+          {
+            // Swap the position of the cylinder.
+            attackController.Attack(ref velocity, distance, controller.collisions.below, target.position);
+          }
         }
       }
+
     }
 
     velocity += Vector3.down * gravity * Time.deltaTime;

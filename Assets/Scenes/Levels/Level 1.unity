@@ -3311,6 +3311,26 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 584929682}
+    - target: {fileID: 7791534272317419940, guid: 8a67841c8f18df444bf6bedbcb259a53,
+        type: 3}
+      propertyPath: verticalOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791534272317419942, guid: 8a67841c8f18df444bf6bedbcb259a53,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791534272317419942, guid: 8a67841c8f18df444bf6bedbcb259a53,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791534272317419942, guid: 8a67841c8f18df444bf6bedbcb259a53,
+        type: 3}
+      propertyPath: orthographic size
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a67841c8f18df444bf6bedbcb259a53, type: 3}
 --- !u!1001 &8550296812586239332

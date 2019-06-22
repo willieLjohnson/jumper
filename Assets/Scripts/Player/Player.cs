@@ -162,7 +162,6 @@ public class Player : MonoBehaviour
         if (daemonModeTimer <= 0)
           ToggleDaemonMode();
       }
-      Debug.Log("life: " + lifeTimer + " daemon: " + daemonModeTimer);
       lifeForceParticleSystem.startLifetime = lifeTimer / maxLifeTimer;
     }
   }
